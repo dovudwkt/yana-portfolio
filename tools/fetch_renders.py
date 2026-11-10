@@ -7,24 +7,24 @@ byname = {re.sub(r'[^\w.-]+', '_', t['path']) + '.jpg': t for t in tree}
 
 PICK = {
   # Квартира Душанбе
-  'du_living_arch': 'hanifa6', 'du_living_mural': 'hanifa9', 'du_living_tv': 'hanifa7', 'du_living_long': 'hanifa5',
-  'du_dining': 'hanifa8', 'du_kitchen_long': 'hanifa19', 'du_kitchen_niche': 'hanifa20', 'du_kitchen_dining': 'hanifa17',
-  'du_kitchen_arch': 'hanifa18', 'du_kids_chairs': 'hanifa13', 'du_kids_bed': 'hanifa12', 'du_kids_wide': 'hanifa15',
-  'du_master_bed': 'hanifa22', 'du_master_niche': 'hanifa21', 'du_master_wardrobe': 'hanifa23', 'du_master_wide': 'hanifa24',
-  'du_laundry_mirror': 'hanifa27', 'du_laundry': 'hanifa25', 'du_laundry_2': 'hanifa26',
-  'du_hall': 'hanifa29', 'du_hall_2': 'hanifa30', 'du_hall_3': 'hanifa31', 'du_medallion': 'hanifa32',
-  'du_bath_floral': 'hanifa2', 'du_bath_leaves': 'hanifa3', 'du_bath_green': 'hanifa4',
+  'du_living_arch': 'du6', 'du_living_mural': 'du9', 'du_living_tv': 'du7', 'du_living_long': 'du5',
+  'du_dining': 'du8', 'du_kitchen_long': 'du19', 'du_kitchen_niche': 'du20', 'du_kitchen_dining': 'du17',
+  'du_kitchen_arch': 'du18', 'du_kids_chairs': 'du13', 'du_kids_bed': 'du12', 'du_kids_wide': 'du15',
+  'du_master_bed': 'du22', 'du_master_niche': 'du21', 'du_master_wardrobe': 'du23', 'du_master_wide': 'du24',
+  'du_laundry_mirror': 'du27', 'du_laundry': 'du25', 'du_laundry_2': 'du26',
+  'du_hall': 'du29', 'du_hall_2': 'du30', 'du_hall_3': 'du31', 'du_medallion': 'du32',
+  'du_bath_floral': 'du2', 'du_bath_leaves': 'du3', 'du_bath_green': 'du4',
   # Вилла Кипр
-  'cy_ext_day': 'anna213', 'cy_ext_night': 'anna217', 'cy_pergola_day': 'anna214', 'cy_pergola_night': 'anna219',
-  'cy_bbq_day': 'anna215', 'cy_bbq_night': 'anna218', 'cy_garden': 'anna222', 'cy_ext_side': 'anna224', 'cy_pergola_2': 'anna227',
-  'cy_dining': 'anna18', 'cy_kitchen': 'anna19', 'cy_living_tv': 'anna115', 'cy_living': 'anna116', 'cy_living_2': 'anna120',
-  'cy_stairs': 'anna17', 'cy_master': 'anna134', 'cy_master_2': 'anna131', 'cy_bath_stone': 'anna129', 'cy_bath': 'anna130',
-  'cy_office': 'anna122', 'cy_yoga': 'anna125', 'cy_wc': 'anna11', 'cy_boy': 'anna22', 'cy_boy_2': 'anna23',
-  'cy_girl': 'anna25', 'cy_girl_desk': 'anna28', 'cy_room_orange': 'anna211',
+  'cy_ext_day': 'cy213', 'cy_ext_night': 'cy217', 'cy_pergola_day': 'cy214', 'cy_pergola_night': 'cy219',
+  'cy_bbq_day': 'cy215', 'cy_bbq_night': 'cy218', 'cy_garden': 'cy222', 'cy_ext_side': 'cy224', 'cy_pergola_2': 'cy227',
+  'cy_dining': 'cy18', 'cy_kitchen': 'cy19', 'cy_living_tv': 'cy115', 'cy_living': 'cy116', 'cy_living_2': 'cy120',
+  'cy_stairs': 'cy17', 'cy_master': 'cy134', 'cy_master_2': 'cy131', 'cy_bath_stone': 'cy129', 'cy_bath': 'cy130',
+  'cy_office': 'cy122', 'cy_yoga': 'cy125', 'cy_wc': 'cy11', 'cy_boy': 'cy22', 'cy_boy_2': 'cy23',
+  'cy_girl': 'cy25', 'cy_girl_desk': 'cy28', 'cy_room_orange': 'cy211',
   # Проект Санкт-Петербург
-  'sp_kitchen': 'dzhona5', 'sp_dining': 'dzhona6', 'sp_kitchen_2': 'dzhona7', 'sp_bed': 'dzhona9', 'sp_bed_2': 'dzhona8',
-  'sp_kids': 'dzhona3', 'sp_kids_2': 'dzhona4', 'sp_kids_3': 'dzhona2', 'sp_living_tv': 'dzhona10', 'sp_hall': 'dzhona11',
-  'sp_hall_2': 'dzhona12', 'sp_bath': 'dzhona0', 'sp_bath_2': 'dzhona1',
+  'sp_kitchen': 'sp5', 'sp_dining': 'sp6', 'sp_kitchen_2': 'sp7', 'sp_bed': 'sp9', 'sp_bed_2': 'sp8',
+  'sp_kids': 'sp3', 'sp_kids_2': 'sp4', 'sp_kids_3': 'sp2', 'sp_living_tv': 'sp10', 'sp_hall': 'sp11',
+  'sp_hall_2': 'sp12', 'sp_bath': 'sp0', 'sp_bath_2': 'sp1',
 }
 out = f'{SRC}/renders'
 def get(item):
