@@ -1,0 +1,71 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "italic-serif-display",
+        "value": "*",
+        "files": [
+          "portfolio/site/index.html"
+        ],
+        "createdAt": "2026-11-10T11:58:15.319Z",
+        "reason": "Brand choice from the user's reference pins (roman + italic serif headlines); italic is only the accent word"
+      },
+      {
+        "rule": "repeating-stripes-gradient",
+        "value": "*",
+        "files": [
+          "portfolio/site/index.html"
+        ],
+        "createdAt": "2026-11-10T11:58:15.340Z",
+        "reason": "Claude: architectural hatch marking the open-ended implementation segment in the timing dimension chain"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "portfolio/site/index.html"
+        ],
+        "createdAt": "2026-11-10T11:58:15.359Z",
+        "reason": "Claude: false positive - side gutters come from the inner .wrap, stats/folders have real padding"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "portfolio/site/index.html"
+        ],
+        "createdAt": "2026-11-10T11:58:24.664Z",
+        "reason": "Paper palette taken from the user's reference pins (blush/cream drawing paper)"
+      },
+      {
+        "rule": "codex-grid-background",
+        "value": "*",
+        "files": [
+          "portfolio/site/index.html"
+        ],
+        "createdAt": "2026-11-10T11:58:24.693Z",
+        "reason": "Claude: faint drafting grid only behind the working-drawings section, domain-appropriate"
+      },
+      {
+        "rule": "buried-raster",
+        "value": "*",
+        "files": [
+          "portfolio/site/index.html"
+        ],
+        "createdAt": "2026-11-10T11:58:24.718Z",
+        "reason": "Claude: night render of the day/night toggle is crossfaded in on click"
+      },
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "portfolio/site/index.html"
+        ],
+        "createdAt": "2026-11-10T11:58:24.741Z",
+        "reason": "Claude: false positive - h1/h2 sizes come from clamp() font shorthand (72-260px), detector reads 15px"
+      }
+    ]
+  }
+}

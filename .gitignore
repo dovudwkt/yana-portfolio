@@ -1,0 +1,6 @@
+# Downloaded sources from Google Drive (large, not part of the site)
+_src/
+__pycache__/
+*.pyc
+.DS_Store
+.impeccable/hook.cache.json
