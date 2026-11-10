@@ -7,7 +7,7 @@ from PIL import Image
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 PDF = f'{ROOT}/_src/pdf'
 RAW = f'{ROOT}/_src/pdfpng'
-OUT = f'{ROOT}/site/assets/dwg'
+OUT = f'{ROOT}/_src/dwg_paper'
 PAPER = np.array((246, 241, 233), np.float32)
 INK = np.array((40, 36, 33), np.float32)
 ACCENT = np.array((166, 88, 60), np.float32)

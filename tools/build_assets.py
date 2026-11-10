@@ -1,8 +1,6 @@
-"""Build web assets: optimized renders (full + small), line sketches, product crops."""
+"""Build web assets: optimized renders (full + small) and product crops."""
 import os, sys, json
 from PIL import Image
-sys.path.insert(0, os.path.dirname(__file__))
-from sketch import sketch
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 SRC = f'{ROOT}/_src'
@@ -27,16 +25,6 @@ def renders():
     json.dump(sizes, open(f'{SRC}/img_sizes.json', 'w'), indent=0)
     print('renders', len(sizes))
 
-def sketches():
-    tmp = f'{SRC}/_sk.jpg'
-    for key, kw in {'cy_ext_day': dict(width=1600, lo=0.10, hi=0.45, blur=0.9),
-                    'du_living_tv': dict(width=1600, lo=0.08, hi=0.40, blur=0.9),
-                    'du_hall_3': dict(width=1280, lo=0.08, hi=0.40, blur=0.9)}.items():
-        sketch(f'{SRC}/renders/{key}.jpg', tmp, **kw)
-        save(Image.open(tmp), f'{IMG}/{key}-line.webp', 1920, 80)
-    os.remove(tmp)
-    print('sketches ok')
-
 PRODUCTS = {  # key: (file, crop box)
     'sink': ('image5.jpg', (50, 80, 995, 975)),
     'faucet': ('image1.png', (150, 110, 790, 790)),
@@ -52,5 +40,5 @@ def products():
 
 if __name__ == '__main__':
     os.makedirs(IMG, exist_ok=True); os.makedirs(PROD, exist_ok=True)
-    what = sys.argv[1:] or ['renders', 'sketches', 'products']
+    what = sys.argv[1:] or ['renders', 'products']
     for w in what: globals()[w]()

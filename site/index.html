@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="ru" data-lang="ru">
+<html lang="ru" data-lang="ru" data-theme="paper">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>YANA CH. — Private Interior Architect</title>
-<meta name="description" content="Яна Ч. — дизайнер интерьера и архитектор. Дизайн-проекты, рабочие чертежи, 3D-визуализация, комплектация и сопровождение реализации. Душанбе и международные проекты.">
+<meta name="description" content="Яна Ч. — частный архитектор интерьера. Дизайн, комплектация и реализация под ключ. Душанбе и международные проекты.">
 <meta name="theme-color" content="#f4eee6">
 <meta property="og:type" content="website">
 <meta property="og:title" content="YANA CH. — Private Interior Architect">
@@ -13,889 +13,407 @@
 <meta property="og:url" content="https://dovudwkt.github.io/yana-portfolio/">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preload" href="assets/fonts/CormorantGaramond-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/img/cy_ext_day-line.webp" as="image">
+<link rel="preload" as="image" href="assets/img/du_living_arch.webp">
 <link rel="stylesheet" href="assets/css/fonts.css">
 <link rel="stylesheet" href="assets/css/style.css">
 <script>
-  // Pick the language before first paint: ?lang= > saved choice > browser language.
-  (function () {
-    var q = (location.search.match(/[?&]lang=(ru|en)/) || [])[1], s = null;
-    try { s = localStorage.getItem('yana-lang'); } catch (e) {}
-    var nav = (navigator.languages || [navigator.language || 'ru']).join(',').toLowerCase();
-    var l = q || s || (/(^|,)(ru|uk|be|kk|tg|uz|ky)/.test(nav) ? 'ru' : 'en');
-    document.documentElement.setAttribute('data-lang', l);
-    document.documentElement.setAttribute('lang', l);
-  })();
+(function(){var l;try{l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('yana-lang')}catch(e){}
+if(l!=='ru'&&l!=='en')l=/^ru|^uk|^be|^kk|^tg/i.test(navigator.language||'')?'ru':'en';
+document.documentElement.dataset.lang=l;document.documentElement.lang=l;document.documentElement.classList.add('js')})();
 </script>
 </head>
 <body>
-<a class="skip" href="#about"><span lang="ru">К содержанию</span><span lang="en">Skip to content</span></a>
 
-<!-- ============ HEADER ============ -->
-<header class="top" id="top-bar">
-  <a class="top__brand" href="#top" aria-label="YANA CH.">YANA CH.</a>
-  <p class="top__where cond" aria-live="polite"><span class="top__num">00</span><span class="top__sec"></span></p>
-  <div class="top__right">
-    <div class="lang cond" role="group" aria-label="Language">
-      <button type="button" data-set-lang="ru" aria-pressed="true">RU</button><span aria-hidden="true">/</span><button type="button" data-set-lang="en" aria-pressed="false">EN</button>
-    </div>
-    <button type="button" class="top__menu cond" aria-expanded="false" aria-controls="menu">
-      <span lang="ru">Меню</span><span lang="en">Menu</span><i aria-hidden="true"></i>
+<div class="loader" id="loader" aria-hidden="true">
+  <svg viewBox="0 0 120 170" class="loader-arch"><path d="M10 165V60a50 50 0 0 1 100 0v105" pathLength="1"/></svg>
+  <span class="loader-n" id="loaderN">0</span>
+</div>
+
+<div class="bg" aria-hidden="true">
+  <div class="orb o1"></div><div class="orb o2"></div>
+  <div class="floor"><i id="floorGrid"></i></div>
+  <div class="grain"></div>
+</div>
+
+<!-- ============ header / navigation ============ -->
+<header class="hdr" id="topbar">
+  <a class="logo" href="#top" data-go>YANA&nbsp;CH.</a>
+  <div class="now" aria-hidden="true"><b id="nowNum">00</b><span id="nowLab"></span></div>
+  <div class="hdr-r">
+    <a class="talk" href="#contacts" data-contact><span lang="ru">Связаться</span><span lang="en">Contact</span></a>
+    <button class="lang" id="langBtn" aria-label="Язык / Language"><span data-l="ru">RU</span><i></i><span data-l="en">EN</span></button>
+    <button class="burger" id="menuBtn" aria-expanded="false" aria-controls="menu">
+      <span class="burger-t"><span lang="ru">Меню</span><span lang="en">Menu</span></span>
+      <span class="burger-i"><i></i><i></i></span>
     </button>
   </div>
 </header>
 
-<nav class="menu" id="menu" hidden>
-  <ol class="menu__list">
-    <li><a href="#about"><b>01</b><span lang="ru">Обо мне</span><span lang="en">About</span></a></li>
-    <li><a href="#philosophy"><b>02</b><span lang="ru">Философия</span><span lang="en">Philosophy</span></a></li>
-    <li><a href="#services"><b>03</b><span lang="ru">Услуги</span><span lang="en">Services</span></a></li>
-    <li><a href="#included"><b>04</b><span lang="ru">Что входит в проект</span><span lang="en">What’s included</span></a></li>
-    <li><a href="#drawings"><b>05</b><span lang="ru">Рабочие чертежи</span><span lang="en">Working drawings</span></a></li>
-    <li><a href="#visual"><b>06</b><span lang="ru">3D-визуализация</span><span lang="en">3D visualisation</span></a></li>
-    <li><a href="#procurement"><b>07</b><span lang="ru">Комплектация</span><span lang="en">Procurement</span></a></li>
-    <li><a href="#implementation"><b>08</b><span lang="ru">Реализация</span><span lang="en">Implementation</span></a></li>
-    <li><a href="#projects"><b>09</b><span lang="ru">Проекты</span><span lang="en">Projects</span></a></li>
-    <li><a href="#stages"><b>10</b><span lang="ru">Этапы</span><span lang="en">Stages</span></a></li>
-    <li><a href="#timing"><b>11</b><span lang="ru">Сроки</span><span lang="en">Timing</span></a></li>
-    <li><a href="#contacts"><b>12</b><span lang="ru">Контакты</span><span lang="en">Contacts</span></a></li>
-  </ol>
-  <p class="menu__foot cond">Dushanbe · International Projects</p>
-</nav>
+<nav class="rail" id="rail" aria-label="Sections"></nav>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <div class="menu-in">
+    <ol class="menu-list" id="menuList"></ol>
+    <div class="menu-side">
+      <div class="menu-pic"><img id="menuPic" src="assets/img/du_master_niche-s.webp" alt=""></div>
+      <p class="mono"><span lang="ru">Душанбе · международные проекты</span><span lang="en">Dushanbe · International projects</span></p>
+      <p class="menu-links"><a data-wa href="https://wa.me/79112136655" target="_blank" rel="noopener">WhatsApp</a><a href="https://instagram.com/yana.ch_" target="_blank" rel="noopener">Instagram</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- quiet contact dock: always one tap away -->
+<div class="dock" id="dock">
+  <div class="dock-pop" id="dockPop">
+    <p><span lang="ru">Расскажите об объекте — отвечу лично.</span><span lang="en">Tell me about your space. I reply personally.</span></p>
+    <a data-wa href="https://wa.me/79112136655" target="_blank" rel="noopener"><b>WhatsApp</b><i>+7 911 213 66 55</i></a>
+    <a href="https://instagram.com/yana.ch_" target="_blank" rel="noopener"><b>Instagram</b><i>@yana.ch_</i></a>
+  </div>
+  <button class="dock-btn" id="dockBtn" aria-expanded="false" aria-controls="dockPop">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>
+    <span><span lang="ru">Написать</span><span lang="en">Message</span></span>
+  </button>
+</div>
+
+<div class="cursor" id="cursor" aria-hidden="true"><span id="cursorT"></span></div>
 
 <main>
 
-<!-- ============ 00 HERO: line → light → night ============ -->
-<section class="hero" id="top" data-dark data-label-ru="От линии к свету" data-label-en="From line to light" data-num="00">
-  <div class="hero__track">
-    <div class="hero__stage">
-      <div class="hero__frame">
-        <img class="hero__layer hero__line" src="assets/img/cy_ext_day-line.webp" alt="" width="1600" height="900">
-        <img class="hero__layer hero__day" src="assets/img/cy_ext_day.webp" alt="Вилла на Кипре · Villa in Cyprus" width="1600" height="900" fetchpriority="high">
-        <img class="hero__layer hero__night" src="assets/img/cy_ext_night.webp" alt="" width="1600" height="900">
-        <span class="hero__scan" aria-hidden="true"></span>
+<!-- ============ 00 HERO ============ -->
+<section class="hero tall" id="top" data-theme="paper" data-num="00" data-ru="Начало" data-en="Intro" data-pic="du_living_arch" style="--h:420">
+  <div class="pin">
+    <div class="stage" id="stage">
+      <div class="world" id="world">
+        <h1 class="it h-title" data-z="0"><span class="ht"><b>YANA</b></span><span class="ht"><b>CH.</b></span></h1>
+        <figure class="it h-arch" data-z="1700" style="--x:-27vw;--y:4vh"><img src="assets/img/du_master_niche-s.webp" alt=""><figcaption class="mono"><span lang="ru">Мастер-спальня · Душанбе</span><span lang="en">Master bedroom · Dushanbe</span></figcaption></figure>
+        <p class="it h-line" data-z="2050" style="--x:7vw;--y:-29vh"><span lang="ru">Архитектор<br>интерьера</span><span lang="en">Interior<br>architect</span></p>
+        <figure class="it h-arch" data-z="2500" style="--x:27vw;--y:6vh"><img src="assets/img/cy_bath_stone-s.webp" alt=""><figcaption class="mono"><span lang="ru">Ванная · вилла на Кипре</span><span lang="en">Bathroom · Cyprus villa</span></figcaption></figure>
+        <p class="it h-line" data-z="2850" style="--x:-7vw;--y:29vh"><span lang="ru">90+<br>проектов</span><span lang="en">90+<br>projects</span></p>
+        <figure class="it h-arch" data-z="3300" style="--x:-26vw;--y:-2vh"><img src="assets/img/du_kitchen_niche-s.webp" alt=""><figcaption class="mono"><span lang="ru">Кухня · Душанбе</span><span lang="en">Kitchen · Dushanbe</span></figcaption></figure>
+        <p class="it h-line" data-z="3650" style="--x:6vw;--y:-30vh"><span lang="ru">От идеи<br>до реализации</span><span lang="en">From idea<br>to completion</span></p>
+        <div class="it h-door" id="door" data-z="4600" data-keep><img src="assets/img/du_living_arch.webp" alt=""></div>
       </div>
-      <div class="hero__veil" aria-hidden="true"></div>
-
-      <div class="hero__content">
-        <p class="hero__kicker cond">Private Interior Architect</p>
-        <h1 class="hero__title">YANA<span>CH.</span></h1>
-        <p class="hero__tag">
-          <span lang="ru">От <em>линии</em> — к <em>свету</em></span>
-          <span lang="en">From <em>line</em> to <em>light</em></span>
-        </p>
-        <div class="hero__meta cond">
-          <p><span lang="ru">Дизайн интерьера · Комплектация · Реализация под ключ</span><span lang="en">Interior Design · Procurement · Turnkey Implementation</span></p>
-          <p><span lang="ru">Душанбе | Международные проекты</span><span lang="en">Dushanbe | International Projects</span></p>
-        </div>
-      </div>
-
-      <ol class="hero__stages cond" aria-hidden="true">
-        <li data-stage="0"><b>01</b><span lang="ru">Линия</span><span lang="en">Line</span></li>
-        <li data-stage="1"><b>02</b><span lang="ru">Свет</span><span lang="en">Light</span></li>
-        <li data-stage="2"><b>03</b><span lang="ru">Атмосфера</span><span lang="en">Atmosphere</span></li>
-      </ol>
-
-      <p class="hero__scroll cond" aria-hidden="true"><span lang="ru">Листайте</span><span lang="en">Scroll</span><i></i></p>
+    </div>
+    <div class="h-foot" id="hFoot">
+      <p class="mono">Private Interior Architect</p>
+      <p class="mono h-mid"><span lang="ru">Дизайн интерьера · Комплектация · Реализация под ключ</span><span lang="en">Interior Design · Procurement · Turnkey Implementation</span></p>
+      <p class="mono h-scroll"><span lang="ru">Листайте — войдите внутрь</span><span lang="en">Scroll to step inside</span><i></i></p>
     </div>
   </div>
 </section>
 
 <!-- ============ 01 ABOUT ============ -->
-<section class="sec about" id="about" data-num="01" data-label-ru="Обо мне" data-label-en="About">
-  <div class="wrap">
-    <header class="shead rv"><span class="shead__num">01</span><span class="shead__rule"></span><span class="shead__label cond"><span lang="ru">Обо мне</span><span lang="en">About me</span></span></header>
-
-    <div class="about__grid">
-      <div class="about__text">
-        <h2 class="display rv">
-          <span lang="ru">Меня зовут <em>Яна</em>.</span>
-          <span lang="en">My name is <em>Yana</em>.</span>
-        </h2>
-        <p class="lead rv">
-          <span lang="ru">Я дизайнер интерьера и архитектор с профильным образованием и международным опытом работы.</span>
-          <span lang="en">I am an interior designer and architect with a professional degree and international experience.</span>
-        </p>
-        <div class="cols2 rv">
-          <p lang="ru">За время профессиональной деятельности я реализовала более 90 проектов разного масштаба и сложности — от частных квартир до загородных домов и вилл.</p>
-          <p lang="en">Over the years I have completed more than 90 projects of different scale and complexity — from private apartments to country houses and villas.</p>
-          <p lang="ru">Я работаю с пространством комплексно: от первых планировочных решений до подбора материалов, мебели, организации комплектации и сопровождения реализации.</p>
-          <p lang="en">I work with space as a whole: from the first layout decisions to choosing materials and furniture, organising procurement and supervising implementation.</p>
-        </div>
-        <blockquote class="pull rv">
-          <p lang="ru">Для меня важно не просто создать красивую визуализацию, а разработать интерьер, который будет продуман до деталей и сможет быть качественно воплощён в реальности.</p>
-          <p lang="en">For me it is not enough to create a beautiful render. I design interiors that are thought through to the last detail and can be built to a high standard.</p>
-        </blockquote>
-      </div>
-
-      <figure class="about__fig rv">
-        <div class="sheet">
-          <img src="assets/img/du_living_mural-s.webp" srcset="assets/img/du_living_mural-s.webp 760w, assets/img/du_living_mural.webp 1280w" sizes="(max-width: 900px) 92vw, 40vw" alt="Гостиная, Квартира Душанбе · Living room, Dushanbe Apartment" loading="lazy" decoding="async" width="1280" height="720">
-        </div>
-        <figcaption class="cond"><span lang="ru">Квартира Душанбе — гостиная</span><span lang="en">Dushanbe Apartment — living room</span></figcaption>
-      </figure>
+<section class="sec about" id="about" data-theme="paper" data-num="01" data-ru="Обо мне" data-en="About" data-pic="du_master_niche">
+  <div class="about-grid">
+    <div class="about-txt">
+      <p class="kick mono" data-rise>01 — <span lang="ru">Обо мне</span><span lang="en">About</span></p>
+      <h2 class="h" data-split><span lang="ru">90+ интерьеров в пяти странах</span><span lang="en">90+ interiors in five countries</span></h2>
+      <p class="lead" data-rise><span lang="ru">Я Яна — дизайнер интерьера и архитектор с профильным образованием. Веду проект целиком: от планировки до готового дома.</span><span lang="en">I’m Yana, an interior designer and architect by training. I take a project all the way: from the layout to the finished home.</span></p>
+      <p data-rise><span lang="ru">Красивой картинки мало. Интерьер должен быть продуман до деталей и построен именно таким, каким задуман.</span><span lang="en">A beautiful picture is not enough. An interior has to be thought through to the detail and built exactly as designed.</span></p>
+      <p class="geo mono" data-rise><span lang="ru">Таджикистан · Турция · Кипр · Канада · Англия</span><span lang="en">Tajikistan · Türkiye · Cyprus · Canada · England</span></p>
     </div>
-
-    <div class="stats rv">
-      <div class="stat">
-        <p class="stat__n"><span data-count="90">90</span>+</p>
-        <p class="stat__l cond"><span lang="ru">реализованных проектов</span><span lang="en">completed projects</span></p>
-      </div>
-      <div class="stat">
-        <p class="stat__n"><span data-count="5">5</span>+</p>
-        <p class="stat__l cond"><span lang="ru">стран</span><span lang="en">countries</span></p>
-      </div>
-      <div class="stat">
-        <p class="stat__n">1–1,5</p>
-        <p class="stat__l cond"><span lang="ru">месяца на дизайн-проект</span><span lang="en">months per design project</span></p>
-      </div>
+    <div class="about-pic">
+      <div class="tilt" id="aboutTilt"><img src="assets/img/du_master_niche.webp" alt="" width="1002" height="1440"><span class="mono tilt-cap"><span lang="ru">Квартиры · дома · виллы</span><span lang="en">Apartments · houses · villas</span></span></div>
     </div>
+  </div>
+</section>
 
-    <div class="countries rv">
-      <p class="cond countries__lbl"><span lang="ru">География проектов</span><span lang="en">Project geography</span></p>
-      <ul class="countries__list">
-        <li><span lang="ru">Таджикистан</span><span lang="en">Tajikistan</span></li>
-        <li><span lang="ru">Турция</span><span lang="en">Turkey</span></li>
-        <li><span lang="ru">Кипр</span><span lang="en">Cyprus</span></li>
-        <li><span lang="ru">Канада</span><span lang="en">Canada</span></li>
-        <li><span lang="ru">Англия</span><span lang="en">England</span></li>
-        <li class="countries__more"><span lang="ru">и другие страны</span><span lang="en">and beyond</span></li>
+<!-- ============ 02 APPROACH ============ -->
+<section class="philo tall" id="philosophy" data-theme="paper2" data-num="02" data-ru="Подход" data-en="Approach" data-pic="cy_master" style="--h:280">
+  <div class="pin">
+    <div class="ph-float" aria-hidden="true">
+      <img src="assets/img/cy_yoga-s.webp" alt="" style="--l:5%;--t:11%;--w:15vw" data-sp="1.5" loading="lazy">
+      <img src="assets/img/cy_master-s.webp" alt="" style="--l:78%;--t:8%;--w:16vw" data-sp="0.8" loading="lazy">
+      <img src="assets/img/sp_bed-s.webp" alt="" style="--l:81%;--t:66%;--w:13vw" data-sp="1.9" loading="lazy">
+      <img src="assets/img/cy_stairs-s.webp" alt="" style="--l:3%;--t:70%;--w:13vw" data-sp="1.1" loading="lazy">
+    </div>
+    <div class="ph-in">
+      <p class="kick mono">02 — <span lang="ru">Мой подход</span><span lang="en">My approach</span></p>
+      <p class="ph-say" id="phSay"><span lang="ru">Каждый дом — отдельная история, где архитектура пространства встречается с характером владельца.</span><span lang="en">Every home is its own story, where the architecture of a space meets the character of its owner.</span></p>
+      <ul class="ph-pts" id="phPts">
+        <li><h3><span lang="ru">Сначала человек</span><span lang="en">People first</span></h3><p><span lang="ru">Образ жизни и привычки важнее картинки.</span><span lang="en">Lifestyle and habits come before the picture.</span></p></li>
+        <li><h3><span lang="ru">Всё со смыслом</span><span lang="en">Everything has a reason</span></h3><p><span lang="ru">Материалы, свет и мебель работают вместе.</span><span lang="en">Materials, light and furniture work as one.</span></p></li>
+        <li><h3><span lang="ru">Понятный путь</span><span lang="en">A clear path</span></h3><p><span lang="ru">Вы всегда знаете, что происходит и что дальше.</span><span lang="en">You always know what is happening and what’s next.</span></p></li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- ============ 02 PHILOSOPHY ============ -->
-<section class="sec philosophy" id="philosophy" data-num="02" data-label-ru="Философия" data-label-en="Philosophy">
-  <div class="wrap">
-    <header class="shead rv"><span class="shead__num">02</span><span class="shead__rule"></span><span class="shead__label cond"><span lang="ru">Моя философия</span><span lang="en">My philosophy</span></span></header>
-
-    <blockquote class="manifest rv">
-      <p lang="ru">Я верю, что хороший интерьер начинается не&nbsp;с&nbsp;красивой картинки, а&nbsp;с&nbsp;<em>понимания человека</em>, его образа жизни и&nbsp;привычек.</p>
-      <p lang="en">I believe a good interior begins not with a beautiful picture, but with <em>understanding the person</em> — their way of life and their habits.</p>
-    </blockquote>
-
-    <div class="philosophy__grid">
-      <figure class="philosophy__fig rv">
-        <img src="assets/img/cy_living-s.webp" srcset="assets/img/cy_living-s.webp 760w, assets/img/cy_living.webp 1200w" sizes="(max-width: 900px) 92vw, 45vw" alt="Гостиная, Вилла Кипр · Living room, Cyprus Villa" loading="lazy" decoding="async" width="1200" height="900">
-      </figure>
-      <div class="philosophy__text">
-        <ol class="principles">
-          <li class="rv">
-            <span class="principles__n">i.</span>
-            <p lang="ru">Мне важно, чтобы пространство было не только эстетичным, но и удобным в повседневной жизни. Чтобы материалы сочетались между собой, освещение работало правильно, мебель была функциональной, а каждое решение имело смысл.</p>
-            <p lang="en">I want a space to be not only beautiful but comfortable in everyday life: materials that work together, lighting that works properly, furniture that is functional, and a reason behind every decision.</p>
-          </li>
-          <li class="rv">
-            <span class="principles__n">ii.</span>
-            <p lang="ru">В своей работе я уделяю внимание как общей концепции, так и деталям, которые часто остаются незаметными на первый взгляд.</p>
-            <p lang="en">I pay attention both to the overall concept and to the details that often go unnoticed at first glance.</p>
-          </li>
-          <li class="rv">
-            <span class="principles__n">iii.</span>
-            <p lang="ru">Я не стремлюсь создавать интерьеры по одному шаблону. Каждый проект — это индивидуальная история, в которой архитектура пространства соединяется с характером и потребностями его владельца.</p>
-            <p lang="en">I don’t design interiors from a template. Every project is its own story, where the architecture of the space meets the character and needs of its owner.</p>
-          </li>
-        </ol>
-        <div class="promise rv">
-          <p class="promise__lead" lang="ru">И самое главное — я хочу, чтобы путь от идеи до готового интерьера был для клиента:</p>
-          <p class="promise__lead" lang="en">And most importantly, I want the path from idea to finished interior to be, for my client:</p>
-          <p class="promise__words">
-            <span lang="ru"><em>понятным</em> · <em>комфортным</em> · <em>организованным</em></span>
-            <span lang="en"><em>clear</em> · <em>comfortable</em> · <em>organised</em></span>
-          </p>
-        </div>
-      </div>
+<!-- ============ 03 SERVICES: rotating drum ============ -->
+<section class="serv tall" id="services" data-theme="paper" data-num="03" data-ru="Услуги" data-en="Services" data-pic="cy_living" style="--h:360">
+  <div class="pin">
+    <div class="serv-head">
+      <p class="kick mono">03 — <span lang="ru">Чем я могу быть полезна</span><span lang="en">How I can help</span></p>
     </div>
-  </div>
-</section>
-
-<!-- ============ 03 SERVICES ============ -->
-<section class="sec services" id="services" data-num="03" data-label-ru="Услуги" data-label-en="Services">
-  <div class="wrap">
-    <header class="shead rv"><span class="shead__num">03</span><span class="shead__rule"></span><span class="shead__label cond"><span lang="ru">Чем я могу быть полезна</span><span lang="en">How I can help</span></span></header>
-
-    <div class="services__intro">
-      <h2 class="display rv">
-        <span lang="ru">От <em>концепции</em><br>до <em>реализации</em></span>
-        <span lang="en">From <em>concept</em><br>to <em>completion</em></span>
-      </h2>
-      <p class="lead rv">
-        <span lang="ru">Я предлагаю комплексную работу над интерьером — от разработки концепции до её реализации. В рамках сотрудничества:</span>
-        <span lang="en">I offer complete interior work — from developing the concept to bringing it to life. Working together can include:</span>
-      </p>
-    </div>
-
-    <div class="services__body">
-      <ol class="toc">
-        <li class="toc__row rv" data-preview="assets/dwg/sp_furniture.webp"><b>01</b><span lang="ru">Архитектурное планирование пространства</span><span lang="en">Architectural space planning</span></li>
-        <li class="toc__row rv" data-preview="assets/img/du_kids_chairs-s.webp"><b>02</b><span lang="ru">Разработка дизайн-концепции</span><span lang="en">Design concept development</span></li>
-        <li class="toc__row rv" data-preview="assets/img/cy_living_tv-s.webp"><b>03</b><span lang="ru">3D-визуализация всех помещений</span><span lang="en">3D visualisation of every room</span></li>
-        <li class="toc__row rv" data-preview="assets/dwg/du_elev_living.webp"><b>04</b><span lang="ru">Полный комплект рабочих чертежей</span><span lang="en">A full set of working drawings</span></li>
-        <li class="toc__row rv" data-preview="assets/img/du_kitchen_niche-s.webp"><b>05</b><span lang="ru">Разработка индивидуальной мебели</span><span lang="en">Custom furniture design</span></li>
-        <li class="toc__row rv" data-preview="assets/img/du_bath_leaves-s.webp"><b>06</b><span lang="ru">Подбор отделочных материалов и оборудования</span><span lang="en">Selection of finishes and equipment</span></li>
-        <li class="toc__row rv" data-preview="assets/img/du_laundry_mirror-s.webp"><b>07</b><span lang="ru">Комплектация интерьера</span><span lang="en">Interior procurement</span></li>
-        <li class="toc__row rv" data-preview="assets/prod/sink.webp"><b>08</b><span lang="ru">Поиск производителей и поставщиков</span><span lang="en">Sourcing manufacturers and suppliers</span></li>
-        <li class="toc__row rv" data-preview="assets/prod/sconce.webp"><b>09</b><span lang="ru">Организация закупок, в том числе в Китае</span><span lang="en">Purchasing, including from China</span></li>
-        <li class="toc__row rv" data-preview="assets/img/du_hall_2-s.webp"><b>10</b><span lang="ru">Подбор строительных специалистов</span><span lang="en">Finding construction specialists</span></li>
-        <li class="toc__row rv" data-preview="assets/img/cy_ext_side-s.webp"><b>11</b><span lang="ru">Авторское сопровождение реализации</span><span lang="en">Designer supervision on site</span></li>
+    <div class="drum-stage">
+      <ol class="drum" id="drum">
+        <li data-img="du_hall_2"><span lang="ru">Планировка и концепция</span><span lang="en">Layout and concept</span>
+          <p><span lang="ru">Архитектурное планирование пространства и стилистическая концепция.</span><span lang="en">Architectural space planning and the style concept.</span></p></li>
+        <li data-img="cy_living"><span lang="ru">3D-визуализация</span><span lang="en">3D visualisation</span>
+          <p><span lang="ru">Все помещения — ещё до начала ремонта.</span><span lang="en">Every room, before any work begins.</span></p></li>
+        <li data-img="du_master_wide"><span lang="ru">Рабочие чертежи</span><span lang="en">Working drawings</span>
+          <p><span lang="ru">Полный комплект документации для строителей.</span><span lang="en">A full documentation set for the build team.</span></p></li>
+        <li data-img="du_master_wardrobe"><span lang="ru">Мебель на заказ</span><span lang="en">Bespoke furniture</span>
+          <p><span lang="ru">Индивидуальные изделия с чертежами для производства.</span><span lang="en">Custom pieces with drawings ready for production.</span></p></li>
+        <li data-img="du_bath_leaves"><span lang="ru">Комплектация и закупки</span><span lang="en">Procurement</span>
+          <p><span lang="ru">Материалы, свет, мебель. Поставщики и фабрики, в том числе в Китае.</span><span lang="en">Materials, lighting, furniture. Suppliers and factories, including China.</span></p></li>
+        <li data-img="cy_pergola_day"><span lang="ru">Сопровождение</span><span lang="en">Supervision</span>
+          <p><span lang="ru">Подбор строительной команды и авторский надзор до сдачи.</span><span lang="en">Selecting the build team and author’s supervision to handover.</span></p></li>
       </ol>
-      <aside class="services__preview" aria-hidden="true">
-        <div class="services__frame"><img src="assets/dwg/sp_furniture.webp" alt="" loading="lazy" decoding="async"></div>
-      </aside>
     </div>
-
-    <p class="services__outro rv">
-      <span lang="ru">Моя задача — объединить все решения в&nbsp;<em>единую систему</em>, чтобы интерьер сохранял свою концепцию на каждом этапе.</span>
-      <span lang="en">My job is to bring every decision into <em>one system</em>, so the interior keeps its concept at every stage.</span>
-    </p>
+    <div class="serv-side">
+      <div class="serv-pic"><img id="servPic" src="assets/img/du_hall_2-s.webp" alt=""></div>
+      <p class="serv-n mono"><b id="servN">01</b> / 06</p>
+      <p class="serv-desc" id="servDesc"></p>
+    </div>
   </div>
 </section>
 
 <!-- ============ 04 WHAT'S INCLUDED ============ -->
-<section class="sec included" id="included" data-num="04" data-label-ru="Что входит в проект" data-label-en="What’s included">
-  <div class="wrap">
-    <header class="shead rv"><span class="shead__num">04</span><span class="shead__rule"></span><span class="shead__label cond"><span lang="ru">Что входит в дизайн-проект</span><span lang="en">What the design project includes</span></span></header>
-
-    <h2 class="display rv">
-      <span lang="ru">Четыре <em>части</em> одного проекта</span>
-      <span lang="en">Four <em>parts</em> of one project</span>
-    </h2>
-
-    <div class="folders">
-      <details class="folder rv" open>
-        <summary><b>01</b><span lang="ru">Обмеры и планировочные решения</span><span lang="en">Measurements and layout</span><i aria-hidden="true"></i></summary>
-        <div class="folder__body">
-          <ul class="ticks">
-            <li><span lang="ru">Обмер помещения</span><span lang="en">Site measurement</span></li>
-            <li><span lang="ru">Анализ исходного пространства</span><span lang="en">Analysis of the existing space</span></li>
-            <li><span lang="ru">Разработка вариантов планировки</span><span lang="en">Layout options</span></li>
-            <li><span lang="ru">Расстановка мебели и оборудования</span><span lang="en">Furniture and equipment placement</span></li>
-            <li><span lang="ru">Оптимизация функциональных зон</span><span lang="en">Optimising functional zones</span></li>
-          </ul>
-          <figure class="folder__fig paper"><img src="assets/dwg/sp_furniture.webp" alt="План расстановки мебели · Furniture layout" loading="lazy" decoding="async"></figure>
-        </div>
-      </details>
-
-      <details class="folder rv">
-        <summary><b>02</b><span lang="ru">Концепция и визуализация</span><span lang="en">Concept and visualisation</span><i aria-hidden="true"></i></summary>
-        <div class="folder__body">
-          <ul class="ticks">
-            <li><span lang="ru">Стилистическая концепция</span><span lang="en">Style concept</span></li>
-            <li><span lang="ru">Подбор цветовой палитры и материалов</span><span lang="en">Colour palette and materials</span></li>
-            <li><span lang="ru">3D-визуализация всех помещений</span><span lang="en">3D visualisation of every room</span></li>
-            <li><span lang="ru">Проработка освещения, мебели и декоративных элементов</span><span lang="en">Lighting, furniture and decorative details</span></li>
-          </ul>
-          <figure class="folder__fig"><img src="assets/img/du_kids_chairs-s.webp" alt="Детская, Квартира Душанбе · Child’s room, Dushanbe Apartment" loading="lazy" decoding="async"></figure>
-        </div>
-      </details>
-
-      <details class="folder rv">
-        <summary><b>03</b><span lang="ru">Рабочая документация</span><span lang="en">Working documentation</span><i aria-hidden="true"></i></summary>
-        <div class="folder__body">
-          <ol class="sheetlist">
-            <li><b>Л-01</b><span lang="ru">План демонтажа и монтажа</span><span lang="en">Demolition and construction plan</span></li>
-            <li><b>Л-02</b><span lang="ru">План расстановки мебели</span><span lang="en">Furniture layout</span></li>
-            <li><b>Л-03</b><span lang="ru">План напольных покрытий</span><span lang="en">Flooring plan</span></li>
-            <li><b>Л-04</b><span lang="ru">План потолков</span><span lang="en">Ceiling plan</span></li>
-            <li><b>Л-05</b><span lang="ru">План освещения</span><span lang="en">Lighting plan</span></li>
-            <li><b>Л-06</b><span lang="ru">План выключателей и розеток</span><span lang="en">Switches and sockets plan</span></li>
-            <li><b>Л-07</b><span lang="ru">Электрические схемы</span><span lang="en">Electrical schemes</span></li>
-            <li><b>Л-08</b><span lang="ru">Сантехнические схемы</span><span lang="en">Plumbing schemes</span></li>
-            <li><b>Л-09</b><span lang="ru">Развёртки стен</span><span lang="en">Wall elevations</span></li>
-            <li><b>Л-10</b><span lang="ru">Чертежи индивидуальной мебели</span><span lang="en">Custom furniture drawings</span></li>
-            <li><b>Л-11</b><span lang="ru">Необходимые узлы и технические решения</span><span lang="en">Details and technical solutions</span></li>
-          </ol>
-          <figure class="folder__fig paper"><img src="assets/dwg/du_elev_master.webp" alt="Развёртка мастер-спальни · Master bedroom elevation" loading="lazy" decoding="async"></figure>
-        </div>
-      </details>
-
-      <details class="folder rv">
-        <summary><b>04</b><span lang="ru">Комплектация</span><span lang="en">Procurement</span><i aria-hidden="true"></i></summary>
-        <div class="folder__body">
-          <ul class="ticks">
-            <li><span lang="ru">Подбор отделочных материалов</span><span lang="en">Finishing materials</span></li>
-            <li><span lang="ru">Подбор сантехники, освещения и мебели</span><span lang="en">Sanitary ware, lighting and furniture</span></li>
-            <li><span lang="ru">Подбор оборудования и декоративных элементов</span><span lang="en">Equipment and decor</span></li>
-            <li><span lang="ru">Спецификации с артикулами, размерами и стоимостью</span><span lang="en">Specifications with item codes, sizes and prices</span></li>
-            <li><span lang="ru">Поиск поставщиков и подходящих аналогов</span><span lang="en">Sourcing suppliers and suitable alternatives</span></li>
-          </ul>
-          <figure class="folder__fig"><img src="assets/img/du_laundry_mirror-s.webp" alt="Прачечная с гостевым санузлом · Laundry with guest WC" loading="lazy" decoding="async"></figure>
-        </div>
-      </details>
-    </div>
+<section class="sec incl" id="included" data-theme="paper2" data-num="04" data-ru="Состав проекта" data-en="What’s included" data-pic="du_living_tv">
+  <div class="sec-head">
+    <p class="kick mono" data-rise>04 — <span lang="ru">Что входит в дизайн-проект</span><span lang="en">What the design project includes</span></p>
+    <h2 class="h" data-split><span lang="ru">Проект в четырёх частях</span><span lang="en">A project in four parts</span></h2>
+  </div>
+  <div class="stack" id="stack">
+    <article class="card c1"><div class="card-in">
+      <header><b class="num">1</b><h3><span lang="ru">Обмеры и планировка</span><span lang="en">Survey and layout</span></h3></header>
+      <ul>
+        <li><span lang="ru">Обмер и анализ пространства</span><span lang="en">Measured survey and analysis</span></li>
+        <li><span lang="ru">Варианты планировки</span><span lang="en">Layout options</span></li>
+        <li><span lang="ru">Расстановка мебели и зоны</span><span lang="en">Furniture layout and zoning</span></li>
+      </ul>
+      <img class="card-dwg" src="assets/dwg/cy_plan-s.webp" alt="" loading="lazy">
+    </div></article>
+    <article class="card c2"><div class="card-in">
+      <header><b class="num">2</b><h3><span lang="ru">Концепция и 3D</span><span lang="en">Concept and 3D</span></h3></header>
+      <ul>
+        <li><span lang="ru">Стиль, палитра, материалы</span><span lang="en">Style, palette, materials</span></li>
+        <li><span lang="ru">3D-визуализация всех помещений</span><span lang="en">3D visualisation of every room</span></li>
+        <li><span lang="ru">Свет, мебель, декор</span><span lang="en">Lighting, furniture, décor</span></li>
+      </ul>
+      <img class="card-pic" src="assets/img/cy_master_2-s.webp" alt="" loading="lazy">
+    </div></article>
+    <article class="card c3"><div class="card-in">
+      <header><b class="num">3</b><h3><span lang="ru">Рабочая документация</span><span lang="en">Working documentation</span></h3></header>
+      <ul>
+        <li><span lang="ru">Планы: монтаж, полы, потолки, мебель</span><span lang="en">Plans: construction, floors, ceilings, furniture</span></li>
+        <li><span lang="ru">Свет, розетки, электрика, сантехника</span><span lang="en">Lighting, sockets, electrics, plumbing</span></li>
+        <li><span lang="ru">Развёртки стен</span><span lang="en">Wall elevations</span></li>
+        <li><span lang="ru">Чертежи мебели и узлы</span><span lang="en">Furniture drawings and details</span></li>
+      </ul>
+      <img class="card-dwg" src="assets/dwg/du_elev_living-s.webp" alt="" loading="lazy">
+    </div></article>
+    <article class="card c4"><div class="card-in">
+      <header><b class="num">4</b><h3><span lang="ru">Комплектация</span><span lang="en">Procurement</span></h3></header>
+      <ul>
+        <li><span lang="ru">Материалы, сантехника, свет, мебель</span><span lang="en">Materials, sanitaryware, lighting, furniture</span></li>
+        <li><span lang="ru">Спецификации с артикулами и стоимостью</span><span lang="en">Specifications with item codes and cost</span></li>
+        <li><span lang="ru">Поставщики и аналоги</span><span lang="en">Suppliers and alternatives</span></li>
+      </ul>
+      <img class="card-pic" src="assets/prod/sconce.webp" alt="" loading="lazy">
+    </div></article>
   </div>
 </section>
 
 <!-- ============ 05 WORKING DRAWINGS ============ -->
-<section class="sec drawings" id="drawings" data-num="05" data-label-ru="Рабочие чертежи" data-label-en="Working drawings">
-  <div class="wrap">
-    <header class="shead rv"><span class="shead__num">05</span><span class="shead__rule"></span><span class="shead__label cond"><span lang="ru">Рабочие чертежи</span><span lang="en">Working drawings</span></span></header>
-
-    <div class="drawings__intro">
-      <h2 class="display rv">
-        <span lang="ru">Красиво — и&nbsp;<em>реализуемо</em></span>
-        <span lang="en">Beautiful — and <em>buildable</em></span>
-      </h2>
-      <div class="drawings__copy rv">
-        <p class="lead" lang="ru">Красивый интерьер должен быть не только визуально продуманным, но и технически реализуемым.</p>
-        <p class="lead" lang="en">A beautiful interior must not only look considered — it must be technically buildable.</p>
-        <p lang="ru">Рабочая документация — это основа, по которой строительная команда понимает, что, где и каким образом необходимо выполнить. Я уделяю особое внимание точности размеров, расположению инженерных коммуникаций, электрических точек, освещения, мебели и отделочных материалов.</p>
-        <p lang="en">Working documentation is what tells the construction team what has to be done, where and how. I pay particular attention to accurate dimensions and to the position of services, electrical points, lighting, furniture and finishes.</p>
-        <p lang="ru">Это помогает уменьшить количество ошибок на объекте, избежать лишних переделок и сохранить задуманную концепцию. Здесь представлены примеры рабочей документации из моих проектов.</p>
-        <p lang="en">This reduces mistakes on site, avoids unnecessary rework and protects the original concept. Below are examples of working documentation from my projects.</p>
+<section class="draw tall" id="drawings" data-theme="paper" data-num="05" data-ru="Чертежи" data-en="Drawings" data-pic="du_master_wide" style="--h:380">
+  <div class="pin">
+    <div class="draw-txt">
+      <p class="kick mono">05 — <span lang="ru">Рабочие чертежи</span><span lang="en">Working drawings</span></p>
+      <h2 class="h h-sm"><span lang="ru">Одна квартира, пять слоёв</span><span lang="en">One flat, five layers</span></h2>
+      <p><span lang="ru">По этим листам строители понимают, что, где и как выполнить. Точные чертежи — меньше ошибок и переделок.</span><span lang="en">These sheets tell the build team what goes where, and how. Precise drawings mean fewer mistakes and less rework.</span></p>
+      <ol class="layers mono" id="layers">
+        <li><span lang="ru">Мебель</span><span lang="en">Furniture</span></li>
+        <li><span lang="ru">Свет и выключатели</span><span lang="en">Lighting and switches</span></li>
+        <li><span lang="ru">Розетки</span><span lang="en">Sockets</span></li>
+        <li><span lang="ru">Тёплый пол</span><span lang="en">Underfloor heating</span></li>
+        <li><span lang="ru">Сантехника</span><span lang="en">Plumbing</span></li>
+      </ol>
+    </div>
+    <div class="iso-stage">
+      <div class="iso" id="iso">
+        <div class="sheet"><img src="assets/dwg/sp_plumbing-s.webp" alt=""></div>
+        <div class="sheet"><img src="assets/dwg/sp_heating-s.webp" alt=""></div>
+        <div class="sheet"><img src="assets/dwg/sp_sockets-s.webp" alt=""></div>
+        <div class="sheet"><img src="assets/dwg/sp_switches-s.webp" alt=""></div>
+        <div class="sheet"><img src="assets/dwg/sp_furniture.webp" alt=""></div>
       </div>
     </div>
-
-    <!-- Featured pair: drawing → 3D -->
-    <div class="pair rv">
-      <figure class="pair__a paper" data-lb-group="pair" data-lb-src="assets/dwg/du_floor_hall.webp" data-lb-zoom data-cap-ru="План пола прихожей с мраморным медальоном" data-cap-en="Entrance hall floor plan with a marble medallion">
-        <img src="assets/dwg/du_floor_hall.webp" alt="План пола прихожей · Entrance hall floor plan" loading="lazy" decoding="async">
-      </figure>
-      <div class="pair__arrow cond" aria-hidden="true"><span lang="ru">чертёж</span><span lang="en">drawing</span><i></i><span>3D</span></div>
-      <figure class="pair__b" data-lb-group="pair" data-lb-src="assets/img/du_hall_3.webp" data-cap-ru="Прихожая в визуализации, Квартира Душанбе" data-cap-en="The same hall in 3D, Dushanbe Apartment">
-        <img src="assets/img/du_hall_3-s.webp" srcset="assets/img/du_hall_3-s.webp 760w, assets/img/du_hall_3.webp 1280w" sizes="(max-width: 900px) 92vw, 45vw" alt="Прихожая с медальоном · Hall with medallion" loading="lazy" decoding="async">
-      </figure>
-      <p class="pair__cap">
-        <span lang="ru"><b class="cond">Квартира Душанбе</b> План пола прихожей с мраморным медальоном — и та же прихожая в визуализации.</span>
-        <span lang="en"><b class="cond">Dushanbe Apartment</b> The entrance hall floor plan with a marble medallion — and the same hall in 3D.</span>
-      </p>
-    </div>
-
-    <div class="filters cond rv" role="group" aria-label="Filter">
-      <button type="button" class="is-on" data-filter="all"><span lang="ru">Все листы</span><span lang="en">All sheets</span></button>
-      <button type="button" data-filter="plan"><span lang="ru">Планы</span><span lang="en">Plans</span></button>
-      <button type="button" data-filter="eng"><span lang="ru">Инженерия</span><span lang="en">Engineering</span></button>
-      <button type="button" data-filter="elev"><span lang="ru">Развёртки</span><span lang="en">Elevations</span></button>
-    </div>
-
-    <div class="sheets">
-      <!-- Each card: unified sheet frame + title block. data-cat drives the filter. -->
-      <figure class="sht rv" data-cat="elev" data-lb-group="dwg" data-lb-src="assets/dwg/du_elev_living.webp" data-lb-zoom data-cap-ru="Развёртка гостиной — ТВ-стена · Квартира Душанбе" data-cap-en="Living room elevation — TV wall · Dushanbe Apartment">
-        <div class="sht__paper"><img src="assets/dwg/du_elev_living.webp" alt="" loading="lazy" decoding="async"></div>
-        <figcaption class="sht__tb"><b>05.01</b><span lang="ru">Развёртка гостиной — ТВ-стена</span><span lang="en">Living room elevation — TV wall</span><em lang="ru">Квартира Душанбе</em><em lang="en">Dushanbe Apartment</em></figcaption>
-      </figure>
-      <figure class="sht rv" data-cat="plan" data-lb-group="dwg" data-lb-src="assets/dwg/sp_furniture.webp" data-lb-zoom data-cap-ru="План расстановки мебели · Проект Санкт-Петербург" data-cap-en="Furniture layout · Saint Petersburg Project">
-        <div class="sht__paper"><img src="assets/dwg/sp_furniture.webp" alt="" loading="lazy" decoding="async"></div>
-        <figcaption class="sht__tb"><b>05.02</b><span lang="ru">План расстановки мебели</span><span lang="en">Furniture layout</span><em lang="ru">Проект Санкт-Петербург</em><em lang="en">Saint Petersburg Project</em></figcaption>
-      </figure>
-      <figure class="sht rv" data-cat="elev" data-lb-group="dwg" data-lb-src="assets/dwg/du_elev_master.webp" data-lb-zoom data-cap-ru="Развёртка мастер-спальни · Квартира Душанбе" data-cap-en="Master bedroom elevation · Dushanbe Apartment">
-        <div class="sht__paper"><img src="assets/dwg/du_elev_master.webp" alt="" loading="lazy" decoding="async"></div>
-        <figcaption class="sht__tb"><b>05.03</b><span lang="ru">Развёртка мастер-спальни</span><span lang="en">Master bedroom elevation</span><em lang="ru">Квартира Душанбе</em><em lang="en">Dushanbe Apartment</em></figcaption>
-      </figure>
-      <figure class="sht rv" data-cat="eng" data-lb-group="dwg" data-lb-src="assets/dwg/sp_switches.webp" data-lb-zoom data-cap-ru="План света и выключателей · Проект Санкт-Петербург" data-cap-en="Lighting and switches plan · Saint Petersburg Project">
-        <div class="sht__paper"><img src="assets/dwg/sp_switches.webp" alt="" loading="lazy" decoding="async"></div>
-        <figcaption class="sht__tb"><b>05.04</b><span lang="ru">План света и выключателей</span><span lang="en">Lighting and switches plan</span><em lang="ru">Проект Санкт-Петербург</em><em lang="en">Saint Petersburg Project</em></figcaption>
-      </figure>
-      <figure class="sht rv" data-cat="plan" data-lb-group="dwg" data-lb-src="assets/dwg/cy_plan.webp" data-lb-zoom data-cap-ru="Планы первого и второго этажа · Вилла Кипр" data-cap-en="Ground and first floor plans · Cyprus Villa">
-        <div class="sht__paper"><img src="assets/dwg/cy_plan.webp" alt="" loading="lazy" decoding="async"></div>
-        <figcaption class="sht__tb"><b>05.05</b><span lang="ru">Планы этажей</span><span lang="en">Floor plans</span><em lang="ru">Вилла Кипр</em><em lang="en">Cyprus Villa</em></figcaption>
-      </figure>
-      <figure class="sht rv" data-cat="eng" data-lb-group="dwg" data-lb-src="assets/dwg/sp_sockets.webp" data-lb-zoom data-cap-ru="План розеток · Проект Санкт-Петербург" data-cap-en="Socket plan · Saint Petersburg Project">
-        <div class="sht__paper"><img src="assets/dwg/sp_sockets.webp" alt="" loading="lazy" decoding="async"></div>
-        <figcaption class="sht__tb"><b>05.06</b><span lang="ru">План розеток</span><span lang="en">Socket plan</span><em lang="ru">Проект Санкт-Петербург</em><em lang="en">Saint Petersburg Project</em></figcaption>
-      </figure>
-      <figure class="sht rv" data-cat="elev" data-lb-group="dwg" data-lb-src="assets/dwg/du_elev_living2.webp" data-lb-zoom data-cap-ru="Развёртка гостиной — стена дивана · Квартира Душанбе" data-cap-en="Living room elevation — sofa wall · Dushanbe Apartment">
-        <div class="sht__paper"><img src="assets/dwg/du_elev_living2.webp" alt="" loading="lazy" decoding="async"></div>
-        <figcaption class="sht__tb"><b>05.07</b><span lang="ru">Развёртка гостиной — стена дивана</span><span lang="en">Living room elevation — sofa wall</span><em lang="ru">Квартира Душанбе</em><em lang="en">Dushanbe Apartment</em></figcaption>
-      </figure>
-      <figure class="sht rv" data-cat="eng" data-lb-group="dwg" data-lb-src="assets/dwg/sp_heating.webp" data-lb-zoom data-cap-ru="План тёплого пола · Проект Санкт-Петербург" data-cap-en="Underfloor heating plan · Saint Petersburg Project">
-        <div class="sht__paper"><img src="assets/dwg/sp_heating.webp" alt="" loading="lazy" decoding="async"></div>
-        <figcaption class="sht__tb"><b>05.08</b><span lang="ru">План тёплого пола</span><span lang="en">Underfloor heating plan</span><em lang="ru">Проект Санкт-Петербург</em><em lang="en">Saint Petersburg Project</em></figcaption>
-      </figure>
-      <figure class="sht rv" data-cat="elev" data-lb-group="dwg" data-lb-src="assets/dwg/du_elev_wc.webp" data-lb-zoom data-cap-ru="Развёртки гостевого санузла · Квартира Душанбе" data-cap-en="Guest WC elevations · Dushanbe Apartment">
-        <div class="sht__paper"><img src="assets/dwg/du_elev_wc.webp" alt="" loading="lazy" decoding="async"></div>
-        <figcaption class="sht__tb"><b>05.09</b><span lang="ru">Развёртки гостевого санузла</span><span lang="en">Guest WC elevations</span><em lang="ru">Квартира Душанбе</em><em lang="en">Dushanbe Apartment</em></figcaption>
-      </figure>
-      <figure class="sht rv" data-cat="eng" data-lb-group="dwg" data-lb-src="assets/dwg/sp_plumbing.webp" data-lb-zoom data-cap-ru="План сантехники · Проект Санкт-Петербург" data-cap-en="Plumbing plan · Saint Petersburg Project">
-        <div class="sht__paper"><img src="assets/dwg/sp_plumbing.webp" alt="" loading="lazy" decoding="async"></div>
-        <figcaption class="sht__tb"><b>05.10</b><span lang="ru">План сантехники</span><span lang="en">Plumbing plan</span><em lang="ru">Проект Санкт-Петербург</em><em lang="en">Saint Petersburg Project</em></figcaption>
-      </figure>
-      <figure class="sht rv" data-cat="plan" data-lb-group="dwg" data-lb-src="assets/dwg/du_ceiling.webp" data-lb-zoom data-cap-ru="План потолков · Квартира Душанбе" data-cap-en="Ceiling plan · Dushanbe Apartment">
-        <div class="sht__paper"><img src="assets/dwg/du_ceiling.webp" alt="" loading="lazy" decoding="async"></div>
-        <figcaption class="sht__tb"><b>05.11</b><span lang="ru">План потолков</span><span lang="en">Ceiling plan</span><em lang="ru">Квартира Душанбе</em><em lang="en">Dushanbe Apartment</em></figcaption>
-      </figure>
-      <figure class="sht rv" data-cat="eng" data-lb-group="dwg" data-lb-src="assets/dwg/du_light.webp" data-lb-zoom data-cap-ru="План потолочного света · Квартира Душанбе" data-cap-en="Ceiling lighting plan · Dushanbe Apartment">
-        <div class="sht__paper"><img src="assets/dwg/du_light.webp" alt="" loading="lazy" decoding="async"></div>
-        <figcaption class="sht__tb"><b>05.12</b><span lang="ru">План потолочного света</span><span lang="en">Ceiling lighting plan</span><em lang="ru">Квартира Душанбе</em><em lang="en">Dushanbe Apartment</em></figcaption>
-      </figure>
-      <figure class="sht rv" data-cat="elev" data-lb-group="dwg" data-lb-src="assets/dwg/sp_elev_kitchen.webp" data-lb-zoom data-cap-ru="Развёртка кухни с электрикой · Проект Санкт-Петербург" data-cap-en="Kitchen elevation with electrics · Saint Petersburg Project">
-        <div class="sht__paper"><img src="assets/dwg/sp_elev_kitchen.webp" alt="" loading="lazy" decoding="async"></div>
-        <figcaption class="sht__tb"><b>05.13</b><span lang="ru">Развёртка кухни</span><span lang="en">Kitchen elevation</span><em lang="ru">Проект Санкт-Петербург</em><em lang="en">Saint Petersburg Project</em></figcaption>
-      </figure>
-      <figure class="sht rv" data-cat="eng" data-lb-group="dwg" data-lb-src="assets/dwg/cy_heating.webp" data-lb-zoom data-cap-ru="План тёплого пола и стен · Вилла Кипр" data-cap-en="Heated floor and wall plan · Cyprus Villa">
-        <div class="sht__paper"><img src="assets/dwg/cy_heating.webp" alt="" loading="lazy" decoding="async"></div>
-        <figcaption class="sht__tb"><b>05.14</b><span lang="ru">План тёплого пола и стен</span><span lang="en">Heated floor and wall plan</span><em lang="ru">Вилла Кипр</em><em lang="en">Cyprus Villa</em></figcaption>
-      </figure>
-      <figure class="sht rv" data-cat="elev" data-lb-group="dwg" data-lb-src="assets/dwg/sp_elev_bath.webp" data-lb-zoom data-cap-ru="Развёртка ванной · Проект Санкт-Петербург" data-cap-en="Bathroom elevation · Saint Petersburg Project">
-        <div class="sht__paper"><img src="assets/dwg/sp_elev_bath.webp" alt="" loading="lazy" decoding="async"></div>
-        <figcaption class="sht__tb"><b>05.15</b><span lang="ru">Развёртка ванной</span><span lang="en">Bathroom elevation</span><em lang="ru">Проект Санкт-Петербург</em><em lang="en">Saint Petersburg Project</em></figcaption>
-      </figure>
-    </div>
-    <p class="hint cond rv"><span lang="ru">Нажмите на лист, чтобы рассмотреть его ближе</span><span lang="en">Tap a sheet to look closer</span></p>
+  </div>
+</section>
+<section class="sec sheets" data-theme="paper">
+  <p class="sheets-lead mono" data-rise><span lang="ru">Ещё листы — нажмите, чтобы рассмотреть</span><span lang="en">More sheets — tap to look closer</span></p>
+  <div class="sheet-grid" id="sheetGrid">
+    <button data-dwg="du_elev_living" data-ru="Развёртка гостиной" data-en="Living room elevation"></button>
+    <button data-dwg="du_elev_master" data-ru="Развёртка спальни" data-en="Bedroom elevation"></button>
+    <button data-dwg="du_elev_wc" data-ru="Развёртки санузла" data-en="WC elevations"></button>
+    <button data-dwg="sp_elev_kitchen" data-ru="Развёртка кухни" data-en="Kitchen elevation"></button>
+    <button data-dwg="cy_plan" data-ru="Планы виллы" data-en="Villa plans"></button>
+    <button data-dwg="du_light" data-ru="План света" data-en="Lighting plan"></button>
   </div>
 </section>
 
 <!-- ============ 06 3D VISUALISATION ============ -->
-<section class="sec visual" id="visual" data-dark data-num="06" data-label-ru="3D-визуализация" data-label-en="3D visualisation">
-  <div class="wrap">
-    <header class="shead rv"><span class="shead__num">06</span><span class="shead__rule"></span><span class="shead__label cond"><span lang="ru">3D-визуализация</span><span lang="en">3D visualisation</span></span></header>
-    <div class="visual__intro">
-      <h2 class="display rv">
-        <span lang="ru">Увидеть дом<br><em>до ремонта</em></span>
-        <span lang="en">See your home<br><em>before it’s built</em></span>
-      </h2>
-      <div class="rv">
-        <p class="lead" lang="ru">3D-визуализация позволяет увидеть будущий интерьер ещё до начала ремонта.</p>
-        <p class="lead" lang="en">3D visualisation lets you see your future interior before renovation begins.</p>
-        <p lang="ru">На этом этапе мы прорабатываем не только общую эстетику, но и сочетание материалов, фактур, освещения, мебели и пропорций пространства. Моя цель — максимально точно передать будущую атмосферу интерьера, чтобы основные решения были понятны и согласованы до начала строительных работ.</p>
-        <p lang="en">At this stage we work out not only the overall look, but how materials, textures, lighting, furniture and proportions come together. My aim is to convey the future atmosphere as accurately as possible, so key decisions are clear and agreed before construction starts.</p>
-      </div>
+<section class="vis tall" id="visual" data-theme="paper2" data-num="06" data-ru="3D" data-en="3D" data-pic="cy_living_tv" style="--h:400">
+  <div class="pin">
+    <div class="vis-head">
+      <p class="kick mono">06 — <span lang="ru">3D-визуализация</span><span lang="en">3D visualisation</span></p>
+      <h2 class="h h-sm"><span lang="ru">Дом виден заранее</span><span lang="en">The home, seen in advance</span></h2>
     </div>
-  </div>
-
-  <!-- Cinematic sticky chapters -->
-  <div class="chapters" data-chapters style="--n: 4">
-    <div class="chapters__stage">
-      <figure class="chapter is-on">
-        <img src="assets/img/du_living_arch.webp" alt="Гостиная-столовая · Living and dining" decoding="async">
-        <figcaption>
-          <p class="chapter__meta cond"><span lang="ru">Квартира Душанбе · Гостиная-столовая</span><span lang="en">Dushanbe Apartment · Living and dining</span></p>
-          <h3 class="chapter__title cond"><span lang="ru">Неоклассика</span><span lang="en">Neoclassic</span></h3>
-          <ul class="chapter__list cond"><li><span lang="ru">Арка</span><span lang="en">Arch</span></li><li><span lang="ru">Панель-фреска</span><span lang="en">Fresco panel</span></li><li><span lang="ru">Молдинги</span><span lang="en">Mouldings</span></li></ul>
-        </figcaption>
-      </figure>
-      <figure class="chapter">
-        <img src="assets/img/cy_bath_stone.webp" alt="Мастер-ванная · Master bathroom" loading="lazy" decoding="async">
-        <figcaption>
-          <p class="chapter__meta cond"><span lang="ru">Вилла Кипр · Мастер-ванная</span><span lang="en">Cyprus Villa · Master bathroom</span></p>
-          <h3 class="chapter__title cond"><span lang="ru">Камень и свет</span><span lang="en">Stone and light</span></h3>
-          <ul class="chapter__list cond"><li><span lang="ru">Фактурный камень</span><span lang="en">Textured stone</span></li><li><span lang="ru">Отдельностоящая ванна</span><span lang="en">Freestanding bath</span></li><li><span lang="ru">Арочная ниша</span><span lang="en">Arched niche</span></li></ul>
-        </figcaption>
-      </figure>
-      <figure class="chapter">
-        <img src="assets/img/sp_bed.webp" alt="Спальня · Bedroom" loading="lazy" decoding="async">
-        <figcaption>
-          <p class="chapter__meta cond"><span lang="ru">Проект Санкт-Петербург · Спальня</span><span lang="en">Saint Petersburg Project · Bedroom</span></p>
-          <h3 class="chapter__title cond"><span lang="ru">Тишина</span><span lang="en">Quiet</span></h3>
-          <ul class="chapter__list cond"><li><span lang="ru">Мягкие фактуры</span><span lang="en">Soft textures</span></li><li><span lang="ru">Встроенное хранение</span><span lang="en">Built-in storage</span></li><li><span lang="ru">Настенный свет</span><span lang="en">Wall lights</span></li></ul>
-        </figcaption>
-      </figure>
-      <figure class="chapter">
-        <img src="assets/img/du_kitchen_long.webp" alt="Кухня · Kitchen" loading="lazy" decoding="async">
-        <figcaption>
-          <p class="chapter__meta cond"><span lang="ru">Квартира Душанбе · Кухня</span><span lang="en">Dushanbe Apartment · Kitchen</span></p>
-          <h3 class="chapter__title cond"><span lang="ru">Голубая кухня</span><span lang="en">Blue kitchen</span></h3>
-          <ul class="chapter__list cond"><li><span lang="ru">Фасады с филёнкой</span><span lang="en">Panelled fronts</span></li><li><span lang="ru">Арочная ниша</span><span lang="en">Arched niche</span></li><li><span lang="ru">Паркет ёлочкой</span><span lang="en">Herringbone floor</span></li></ul>
-        </figcaption>
-      </figure>
-      <p class="chapters__count cond"><b class="chapters__i">01</b> / 04</p>
-      <div class="chapters__bar" aria-hidden="true"><i></i></div>
-    </div>
-  </div>
-
-  <div class="wrap">
-    <div class="duo">
-      <!-- Line ⇄ 3D -->
-      <div class="duo__item rv">
-        <p class="duo__lbl cond"><span lang="ru">Линия ⇄ 3D</span><span lang="en">Line ⇄ 3D</span></p>
-        <div class="compare" style="--pos: 50%">
-          <img class="compare__img" src="assets/img/du_living_tv.webp" alt="ТВ-стена в гостиной · Living room TV wall" loading="lazy" decoding="async">
-          <img class="compare__img compare__line" src="assets/img/du_living_tv-line.webp" alt="" loading="lazy" decoding="async">
-          <span class="compare__handle" aria-hidden="true"><i></i></span>
-          <span class="compare__tag compare__tag--l cond" aria-hidden="true"><span lang="ru">Линия</span><span lang="en">Line</span></span>
-          <span class="compare__tag compare__tag--r cond" aria-hidden="true">3D</span>
-          <input class="compare__range" type="range" min="0" max="100" value="50" aria-label="Линия / 3D">
-        </div>
-        <p class="duo__cap"><span lang="ru">Одна стена — два состояния. Потяните ползунок: линия становится пространством.</span><span lang="en">One wall, two states. Drag the handle and the line becomes a space.</span></p>
-      </div>
-      <!-- Day ⇄ Night -->
-      <div class="duo__item rv">
-        <p class="duo__lbl cond"><span lang="ru">День ⇄ ночь</span><span lang="en">Day ⇄ night</span></p>
-        <div class="daynight" data-mode="day">
-          <img class="daynight__img" src="assets/img/cy_bbq_day.webp" alt="Патио днём · Patio by day" loading="lazy" decoding="async">
-          <img class="daynight__img daynight__night" src="assets/img/cy_bbq_night.webp" alt="Патио вечером · Patio at night" loading="lazy" decoding="async">
-          <div class="daynight__ctrl cond" role="group" aria-label="День / ночь">
-            <button type="button" data-dn="day" aria-pressed="true"><span lang="ru">День</span><span lang="en">Day</span></button>
-            <button type="button" data-dn="night" aria-pressed="false"><span lang="ru">Ночь</span><span lang="en">Night</span></button>
-          </div>
-        </div>
-        <p class="duo__cap"><span lang="ru">Вилла Кипр, патио. Сценарии освещения прорабатываются ещё на этапе визуализации.</span><span lang="en">Cyprus Villa, patio. Lighting scenarios are worked out at the visualisation stage.</span></p>
-      </div>
-    </div>
-
-    <div class="strip">
-      <p class="strip__lbl cond rv"><span lang="ru">Визуализации реализованных и проектируемых интерьеров</span><span lang="en">Visualisations of completed and ongoing interiors</span></p>
-      <div class="strip__grid">
-        <figure class="rv" data-lb-group="strip" data-lb-src="assets/img/du_master_niche.webp" data-cap-ru="Мастер-спальня · Квартира Душанбе" data-cap-en="Master bedroom · Dushanbe Apartment"><img src="assets/img/du_master_niche-s.webp" alt="" loading="lazy" decoding="async"></figure>
-        <figure class="rv" data-lb-group="strip" data-lb-src="assets/img/cy_kitchen.webp" data-cap-ru="Кухня-гостиная · Вилла Кипр" data-cap-en="Kitchen and living · Cyprus Villa"><img src="assets/img/cy_kitchen-s.webp" alt="" loading="lazy" decoding="async"></figure>
-        <figure class="rv" data-lb-group="strip" data-lb-src="assets/img/sp_kitchen.webp" data-cap-ru="Кухня · Проект Санкт-Петербург" data-cap-en="Kitchen · Saint Petersburg Project"><img src="assets/img/sp_kitchen-s.webp" alt="" loading="lazy" decoding="async"></figure>
-        <figure class="rv" data-lb-group="strip" data-lb-src="assets/img/du_bath_leaves.webp" data-cap-ru="Мастер-ванная · Квартира Душанбе" data-cap-en="Master bathroom · Dushanbe Apartment"><img src="assets/img/du_bath_leaves-s.webp" alt="" loading="lazy" decoding="async"></figure>
-        <figure class="rv" data-lb-group="strip" data-lb-src="assets/img/cy_ext_side.webp" data-cap-ru="Фасад и сад · Вилла Кипр" data-cap-en="Facade and garden · Cyprus Villa"><img src="assets/img/cy_ext_side-s.webp" alt="" loading="lazy" decoding="async"></figure>
-        <figure class="rv" data-lb-group="strip" data-lb-src="assets/img/sp_bath_2.webp" data-cap-ru="Ванная с прачечной · Проект Санкт-Петербург" data-cap-en="Bathroom with laundry · Saint Petersburg Project"><img src="assets/img/sp_bath_2-s.webp" alt="" loading="lazy" decoding="async"></figure>
-      </div>
+    <div class="ring-stage"><div class="ring" id="ring"></div></div>
+    <div class="vis-foot">
+      <p class="vis-txt"><span lang="ru">Материалы, свет, мебель и пропорции согласованы до начала работ.</span><span lang="en">Materials, light, furniture and proportions are agreed before work starts.</span></p>
+      <p class="vis-cap mono"><b id="visN">01</b><span id="visCap"></span></p>
     </div>
   </div>
 </section>
 
 <!-- ============ 07 PROCUREMENT ============ -->
-<section class="sec procurement" id="procurement" data-num="07" data-label-ru="Комплектация" data-label-en="Procurement">
-  <div class="wrap">
-    <header class="shead rv"><span class="shead__num">07</span><span class="shead__rule"></span><span class="shead__label cond"><span lang="ru">Комплектация и закупки</span><span lang="en">Procurement and purchasing</span></span></header>
-
-    <div class="procurement__intro">
-      <h2 class="display rv">
-        <span lang="ru">Каждая вещь —<br>на <em>своём месте</em></span>
-        <span lang="en">Every object<br>in <em>its place</em></span>
-      </h2>
-      <div class="rv">
-        <p class="lead" lang="ru">Правильно подобранные материалы и предметы интерьера играют не меньшую роль, чем сама концепция.</p>
-        <p class="lead" lang="en">Well-chosen materials and objects matter as much as the concept itself.</p>
-        <p lang="ru">Я занимаюсь подбором и комплектацией интерьера с учётом эстетики проекта, технических характеристик и бюджета заказчика.</p>
-        <p lang="en">I select and source everything for the interior with the project’s aesthetics, technical requirements and the client’s budget in mind.</p>
-      </div>
+<section class="sec proc" id="procurement" data-theme="paper" data-num="07" data-ru="Комплектация" data-en="Procurement" data-pic="du_bath_floral">
+  <div class="proc-grid">
+    <div class="proc-txt">
+      <p class="kick mono" data-rise>07 — <span lang="ru">Комплектация и закупки</span><span lang="en">Procurement</span></p>
+      <h2 class="h" data-split><span lang="ru">Найду, сравню, привезу</span><span lang="en">Find, compare, deliver</span></h2>
+      <p class="lead" data-rise><span lang="ru">Подбираю всё под эстетику проекта, технические требования и бюджет — от отделки до декора. Работаю с фабриками напрямую, в том числе в Китае.</span><span lang="en">I source everything to fit the design, the technical requirements and the budget, from finishes to décor. I work with factories directly, including in China.</span></p>
+      <p class="spec mono" data-rise><span lang="ru">В спецификации: фото · размеры · ссылки · стоимость</span><span lang="en">In the specification: photos · sizes · links · cost</span></p>
     </div>
-
-    <div class="spec rv">
-      <header class="spec__head cond">
-        <span lang="ru">Ведомость комплектации</span><span lang="en">Procurement schedule</span>
-        <span lang="ru">Прачечная с гостевым санузлом · Квартира Душанбе</span><span lang="en">Laundry with guest WC · Dushanbe Apartment</span>
-        <span lang="ru">Закупка в Китае</span><span lang="en">Sourced in China</span>
-      </header>
-      <div class="spec__body">
-        <figure class="spec__scene">
-          <img src="assets/img/du_laundry.webp" alt="Прачечная с гостевым санузлом · Laundry with guest WC" loading="lazy" decoding="async" width="1146" height="1373">
-          <button type="button" class="hot" data-item="mirror" style="--x: 6%; --y: 30%" aria-label="1">1</button>
-          <button type="button" class="hot" data-item="sconce" style="--x: 15.5%; --y: 41%" aria-label="2">2</button>
-          <button type="button" class="hot" data-item="faucet" style="--x: 6%; --y: 60%" aria-label="3">3</button>
-          <button type="button" class="hot" data-item="sink" style="--x: 16%; --y: 66%" aria-label="4">4</button>
-        </figure>
-        <ol class="spec__list">
-          <li class="item" data-item="mirror" tabindex="0">
-            <span class="item__n">1</span>
-            <img class="item__ph" src="assets/prod/mirror.webp" alt="" loading="lazy" decoding="async">
-            <div class="item__tx">
-              <p class="item__name"><span lang="ru">Фигурное зеркало с LED-подсветкой</span><span lang="en">Wavy mirror with LED light</span></p>
-              <p class="item__meta"><span lang="ru">Зеркало · влагостойкое, сенсорное включение · 600 × 800 мм</span><span lang="en">Mirror · moisture-resistant, touch switch · 600 × 800 mm</span></p>
-            </div>
-            <span class="item__q cond"><span lang="ru">1 шт.</span><span lang="en">1 pc</span></span>
-          </li>
-          <li class="item" data-item="sconce" tabindex="0">
-            <span class="item__n">2</span>
-            <img class="item__ph" src="assets/prod/sconce.webp" alt="" loading="lazy" decoding="async">
-            <div class="item__tx">
-              <p class="item__name"><span lang="ru">Настенное бра</span><span lang="en">Wall sconce</span></p>
-              <p class="item__meta"><span lang="ru">Освещение · латунь, стекло, керамические вставки</span><span lang="en">Lighting · brass, glass, ceramic inserts</span></p>
-            </div>
-            <span class="item__q cond"><span lang="ru">1 шт.</span><span lang="en">1 pc</span></span>
-          </li>
-          <li class="item" data-item="faucet" tabindex="0">
-            <span class="item__n">3</span>
-            <img class="item__ph" src="assets/prod/faucet.webp" alt="" loading="lazy" decoding="async">
-            <div class="item__tx">
-              <p class="item__name"><span lang="ru">Высокий смеситель для раковины</span><span lang="en">Tall basin mixer</span></p>
-              <p class="item__meta"><span lang="ru">Смеситель · латунь, винтажное золото · H 300 мм</span><span lang="en">Mixer · brass, vintage gold · H 300 mm</span></p>
-            </div>
-            <span class="item__q cond"><span lang="ru">1 шт.</span><span lang="en">1 pc</span></span>
-          </li>
-          <li class="item" data-item="sink" tabindex="0">
-            <span class="item__n">4</span>
-            <img class="item__ph" src="assets/prod/sink.webp" alt="" loading="lazy" decoding="async">
-            <div class="item__tx">
-              <p class="item__name"><span lang="ru">Накладная раковина из стекла</span><span lang="en">Glass vessel basin</span></p>
-              <p class="item__meta"><span lang="ru">Раковина · зелёное рельефное стекло · 390 × 390 × 105 мм</span><span lang="en">Basin · green textured glass · 390 × 390 × 105 mm</span></p>
-            </div>
-            <span class="item__q cond"><span lang="ru">1 шт.</span><span lang="en">1 pc</span></span>
-          </li>
-          <li class="item item--hidden" data-item="rack" tabindex="0">
-            <span class="item__n">5</span>
-            <img class="item__ph" src="assets/prod/rack.webp" alt="" loading="lazy" decoding="async">
-            <div class="item__tx">
-              <p class="item__name"><span lang="ru">Выдвижная вешалка-сушилка</span><span lang="en">Pull-out drying rack</span></p>
-              <p class="item__meta"><span lang="ru">Скрытый монтаж в шкаф · ширина 560–610 мм</span><span lang="en">Concealed in-cabinet mount · 560–610 mm wide</span></p>
-            </div>
-            <span class="item__q cond"><span lang="ru">2 шт.</span><span lang="en">2 pcs</span></span>
-          </li>
-          <li class="item item--hidden" data-item="ironing" tabindex="0">
-            <span class="item__n">6</span>
-            <img class="item__ph" src="assets/prod/ironing.webp" alt="" loading="lazy" decoding="async">
-            <div class="item__tx">
-              <p class="item__name"><span lang="ru">Встраиваемая гладильная доска</span><span lang="en">Built-in ironing board</span></p>
-              <p class="item__meta"><span lang="ru">Поворотная, складная · 435 × 305 × 147 мм в сложенном виде</span><span lang="en">Swivel, folding · 435 × 305 × 147 mm folded</span></p>
-            </div>
-            <span class="item__q cond"><span lang="ru">1 шт.</span><span lang="en">1 pc</span></span>
-          </li>
-          <li class="item item--hidden" data-item="bin" tabindex="0">
-            <span class="item__n">7</span>
-            <span class="item__ph item__ph--none" aria-hidden="true"></span>
-            <div class="item__tx">
-              <p class="item__name"><span lang="ru">Ведро с педалью и крышкой</span><span lang="en">Pedal bin with lid</span></p>
-              <p class="item__meta"><span lang="ru">Аксессуары · 12 л, плавное закрывание</span><span lang="en">Accessories · 12 L, soft close</span></p>
-            </div>
-            <span class="item__q cond"><span lang="ru">1 шт.</span><span lang="en">1 pc</span></span>
-          </li>
-        </ol>
-      </div>
-      <p class="spec__legend cond"><span class="spec__dot"></span><span lang="ru">Отмечены на визуализации</span><span lang="en">Marked on the render</span><span class="spec__dot spec__dot--hollow"></span><span lang="ru">Скрыты в системах хранения</span><span lang="en">Concealed in storage</span></p>
-    </div>
-
-    <div class="procurement__foot">
-      <div class="rv">
-        <p class="cond procurement__k"><span lang="ru">В зависимости от задачи это может включать</span><span lang="en">Depending on the brief, this can include</span></p>
-        <ul class="tags">
-          <li><span lang="ru">Отделочные материалы</span><span lang="en">Finishing materials</span></li>
-          <li><span lang="ru">Сантехника и оборудование</span><span lang="en">Sanitary ware and equipment</span></li>
-          <li><span lang="ru">Освещение</span><span lang="en">Lighting</span></li>
-          <li><span lang="ru">Мебель и индивидуальные изделия</span><span lang="en">Furniture and custom pieces</span></li>
-          <li><span lang="ru">Декор и аксессуары</span><span lang="en">Decor and accessories</span></li>
-          <li><span lang="ru">Поиск фабрик и производителей</span><span lang="en">Finding factories and manufacturers</span></li>
-          <li><span lang="ru">Подбор аналогов и сравнение предложений</span><span lang="en">Alternatives and price comparison</span></li>
-          <li><span lang="ru">Закупки в Китае и у других поставщиков</span><span lang="en">Purchasing in China and from other suppliers</span></li>
-        </ul>
-      </div>
-      <p class="procurement__note rv">
-        <span lang="ru">Для удобства заказчика формируется спецификация с&nbsp;фотографиями, размерами, ссылками и&nbsp;стоимостью выбранных позиций.</span>
-        <span lang="en">For the client’s convenience I prepare a specification with photos, sizes, links and prices for every selected item.</span>
-      </p>
+    <div class="proc-cards" id="procCards">
+      <figure style="--r:-5deg" data-sp="1.4"><img src="assets/prod/faucet.webp" alt="" loading="lazy"><figcaption class="mono"><span lang="ru">Смеситель</span><span lang="en">Tap</span></figcaption></figure>
+      <figure style="--r:4deg" data-sp="0.6"><img src="assets/prod/mirror.webp" alt="" loading="lazy"><figcaption class="mono"><span lang="ru">Зеркало</span><span lang="en">Mirror</span></figcaption></figure>
+      <figure style="--r:3deg" data-sp="2"><img src="assets/prod/sink.webp" alt="" loading="lazy"><figcaption class="mono"><span lang="ru">Раковина</span><span lang="en">Basin</span></figcaption></figure>
+      <figure style="--r:-3deg" data-sp="1"><img src="assets/prod/sconce.webp" alt="" loading="lazy"><figcaption class="mono"><span lang="ru">Бра</span><span lang="en">Sconce</span></figcaption></figure>
+      <figure style="--r:6deg" data-sp="1.7"><img src="assets/prod/ironing.webp" alt="" loading="lazy"><figcaption class="mono"><span lang="ru">Гладильная доска</span><span lang="en">Ironing board</span></figcaption></figure>
+      <figure style="--r:-4deg" data-sp="0.8"><img src="assets/prod/rack.webp" alt="" loading="lazy"><figcaption class="mono"><span lang="ru">Сушилка</span><span lang="en">Drying rack</span></figcaption></figure>
     </div>
   </div>
 </section>
 
 <!-- ============ 08 IMPLEMENTATION ============ -->
-<section class="sec implementation" id="implementation" data-dark data-num="08" data-label-ru="Реализация" data-label-en="Implementation">
-  <div class="wrap">
-    <header class="shead rv"><span class="shead__num">08</span><span class="shead__rule"></span><span class="shead__label cond"><span lang="ru">От проекта к реализации</span><span lang="en">From design to reality</span></span></header>
-    <div class="impl">
-      <div class="impl__text">
-        <h2 class="display rv">
-          <span lang="ru">Проект <em>не заканчивается</em> на чертежах</span>
-          <span lang="en">A project <em>doesn’t end</em> with the drawings</span>
-        </h2>
-        <p class="lead rv">
-          <span lang="ru">Я считаю важным сопровождать проект не только на этапе разработки, но и во время его воплощения. В процессе реализации я помогаю сохранять связь между утверждённым проектом и тем, что происходит на объекте.</span>
-          <span lang="en">I believe in staying with a project not only while it is designed, but while it is built. During implementation I keep the approved design and what happens on site connected.</span>
-        </p>
-        <p class="cond impl__k rv"><span lang="ru">Моё участие может включать</span><span lang="en">My involvement can include</span></p>
-        <ul class="checks">
-          <li class="rv"><span lang="ru">Консультации строительной команды</span><span lang="en">Consulting the construction team</span></li>
-          <li class="rv"><span lang="ru">Выезды на объект</span><span lang="en">Site visits</span></li>
-          <li class="rv"><span lang="ru">Проверку соответствия работ проекту</span><span lang="en">Checking the work against the design</span></li>
-          <li class="rv"><span lang="ru">Уточнение технических решений</span><span lang="en">Clarifying technical solutions</span></li>
-          <li class="rv"><span lang="ru">Согласование изменений</span><span lang="en">Agreeing changes</span></li>
-          <li class="rv"><span lang="ru">Контроль подбора и соответствия материалов</span><span lang="en">Checking materials and their compliance</span></li>
-          <li class="rv"><span lang="ru">Взаимодействие с поставщиками и исполнителями</span><span lang="en">Working with suppliers and contractors</span></li>
-        </ul>
-      </div>
-      <figure class="impl__fig rv">
-        <img src="assets/img/cy_stairs-s.webp" srcset="assets/img/cy_stairs-s.webp 760w, assets/img/cy_stairs.webp 1200w" sizes="(max-width: 900px) 92vw, 40vw" alt="Холл и лестница, Вилла Кипр · Hall and staircase, Cyprus Villa" loading="lazy" decoding="async" width="1200" height="900">
-      </figure>
+<section class="sec impl" id="implementation" data-theme="blush" data-num="08" data-ru="Реализация" data-en="Implementation" data-pic="cy_kitchen">
+  <div class="impl-grid">
+    <div class="impl-scene" id="implScene">
+      <img class="impl-a" src="assets/img/cy_kitchen.webp" alt="" loading="lazy">
+      <img class="impl-b" src="assets/img/cy_stairs-s.webp" alt="" loading="lazy">
     </div>
-    <aside class="note rv">
-      <p class="cond note__k"><span lang="ru">Важно понимать</span><span lang="en">Worth knowing</span></p>
-      <p lang="ru">Качество результата зависит не только от проекта, но и от своевременной работы строительной команды, поставок и решений заказчика. Поэтому процесс реализации организуется с учётом этих факторов.</p>
-      <p lang="en">The result depends not only on the design, but also on timely work by the construction team, deliveries and the client’s decisions. The implementation process is organised with all of this in mind.</p>
-    </aside>
+    <div class="impl-txt">
+      <p class="kick mono" data-rise>08 — <span lang="ru">От проекта к реализации</span><span lang="en">From design to site</span></p>
+      <h2 class="h" data-split><span lang="ru">Остаюсь с проектом до конца</span><span lang="en">With the project to the end</span></h2>
+      <ul class="ticks" id="ticks">
+        <li><span lang="ru">Выезды на объект и консультации команды</span><span lang="en">Site visits and advice for the build team</span></li>
+        <li><span lang="ru">Проверка работ на соответствие проекту</span><span lang="en">Checking the work against the design</span></li>
+        <li><span lang="ru">Согласование изменений и технических решений</span><span lang="en">Agreeing changes and technical solutions</span></li>
+        <li><span lang="ru">Контроль материалов, связь с поставщиками</span><span lang="en">Checking materials, liaising with suppliers</span></li>
+      </ul>
+      <p class="note" data-rise><span lang="ru">Результат зависит и от строительной команды, поставок и решений заказчика — процесс выстраивается с учётом этого.</span><span lang="en">The result also depends on the build team, deliveries and the client’s decisions, and the process is organised with that in mind.</span></p>
+    </div>
   </div>
 </section>
 
-<!-- ============ 09 PROJECTS ============ -->
-<section class="sec projects" id="projects" data-num="09" data-label-ru="Проекты" data-label-en="Projects">
-  <div class="wrap">
-    <header class="shead rv"><span class="shead__num">09</span><span class="shead__rule"></span><span class="shead__label cond"><span lang="ru">Мои проекты</span><span lang="en">My projects</span></span></header>
-    <div class="projects__intro">
-      <h2 class="display rv">
-        <span lang="ru">Избранные <em>работы</em></span>
-        <span lang="en">Selected <em>work</em></span>
-      </h2>
-      <div class="rv">
-        <p class="lead"><span lang="ru">Каждый проект для меня — отдельная задача, требующая индивидуального подхода.</span><span lang="en">Every project is a separate task that needs its own approach.</span></p>
-        <ul class="tags tags--soft">
-          <li><span lang="ru">Частные квартиры</span><span lang="en">Private apartments</span></li>
-          <li><span lang="ru">Просторные семейные апартаменты</span><span lang="en">Spacious family apartments</span></li>
-          <li><span lang="ru">Загородные дома и виллы</span><span lang="en">Country houses and villas</span></li>
-          <li><span lang="ru">Интерьеры с индивидуальной мебелью</span><span lang="en">Interiors with custom furniture</span></li>
-          <li><span lang="ru">Проекты для международных заказчиков</span><span lang="en">Projects for international clients</span></li>
-        </ul>
+<!-- ============ 09 PROJECTS: prism ============ -->
+<section class="proj tall" id="projects" data-theme="paper" data-num="09" data-ru="Проекты" data-en="Projects" data-pic="cy_ext_day" style="--h:440">
+  <div class="pin">
+    <div class="proj-head">
+      <p class="kick mono">09 — <span lang="ru">Избранные проекты</span><span lang="en">Selected projects</span></p>
+      <div class="tabs mono" id="projTabs"><button>I</button><button>II</button><button>III</button></div>
+    </div>
+    <div class="prism-stage">
+      <div class="prism" id="prism">
+        <article class="face" data-proj="dushanbe" data-cursor="open">
+          <img src="assets/img/du_kitchen_dining.webp" alt="" loading="lazy">
+          <div class="face-t"><p class="mono">I · <span lang="ru">Квартира · Таджикистан</span><span lang="en">Apartment · Tajikistan</span></p><h3><span lang="ru">Квартира Душанбе</span><span lang="en">Dushanbe Apartment</span></h3><button class="btn"><span lang="ru">Галерея · 25</span><span lang="en">Gallery · 25</span><i>→</i></button></div>
+        </article>
+        <article class="face" data-proj="cyprus" data-cursor="open">
+          <img src="assets/img/cy_ext_day.webp" alt="" loading="lazy">
+          <div class="face-t"><p class="mono">II · <span lang="ru">Вилла с садом · Кипр</span><span lang="en">Villa with garden · Cyprus</span></p><h3><span lang="ru">Вилла Кипр</span><span lang="en">Cyprus Villa</span></h3><button class="btn"><span lang="ru">Галерея · 27</span><span lang="en">Gallery · 27</span><i>→</i></button></div>
+        </article>
+        <article class="face" data-proj="spb" data-cursor="open">
+          <img src="assets/img/sp_kitchen.webp" alt="" loading="lazy">
+          <div class="face-t"><p class="mono">III · <span lang="ru">Квартира · Россия</span><span lang="en">Apartment · Russia</span></p><h3><span lang="ru">Проект Санкт-Петербург</span><span lang="en">Saint Petersburg Project</span></h3><button class="btn"><span lang="ru">Галерея · 13</span><span lang="en">Gallery · 13</span><i>→</i></button></div>
+        </article>
       </div>
     </div>
-
-    <article class="case rv">
-      <button type="button" class="case__cover" data-project="dushanbe" aria-label="Квартира Душанбе · Dushanbe Apartment">
-        <img src="assets/img/du_living_long-s.webp" srcset="assets/img/du_living_long-s.webp 760w, assets/img/du_living_long.webp 1920w" sizes="(max-width: 900px) 92vw, 62vw" alt="" loading="lazy" decoding="async">
-        <span class="case__open cond"><span lang="ru">Смотреть проект</span><span lang="en">View project</span> →</span>
-      </button>
-      <div class="case__info">
-        <p class="case__n">01</p>
-        <h3 class="case__title"><span lang="ru">Квартира <em>Душанбе</em></span><span lang="en">Dushanbe <em>Apartment</em></span></h3>
-        <p><span lang="ru">Неоклассика в мягкой палитре: гостиная со столовой, голубая кухня, детская, мастер-спальня, ванные, прачечная с гостевым санузлом и прихожая с мраморным медальоном.</span><span lang="en">Soft-palette neoclassic: living and dining, a blue kitchen, a child’s room, master bedroom, bathrooms, a laundry with guest WC and an entrance hall with a marble medallion.</span></p>
-        <ul class="case__scope cond">
-          <li>3D</li><li><span lang="ru">Рабочие чертежи</span><span lang="en">Working drawings</span></li><li><span lang="ru">Развёртки</span><span lang="en">Elevations</span></li><li><span lang="ru">Комплектация в Китае</span><span lang="en">Sourcing in China</span></li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="case case--flip rv">
-      <button type="button" class="case__cover" data-project="cyprus" aria-label="Вилла Кипр · Cyprus Villa">
-        <img src="assets/img/cy_living_tv-s.webp" srcset="assets/img/cy_living_tv-s.webp 760w, assets/img/cy_living_tv.webp 1920w" sizes="(max-width: 900px) 92vw, 62vw" alt="" loading="lazy" decoding="async">
-        <span class="case__open cond"><span lang="ru">Смотреть проект</span><span lang="en">View project</span> →</span>
-      </button>
-      <div class="case__info">
-        <p class="case__n">02</p>
-        <h3 class="case__title"><span lang="ru">Вилла <em>Кипр</em></span><span lang="en">Cyprus <em>Villa</em></span></h3>
-        <p><span lang="ru">Двухэтажный дом: светлая гостиная с кухней, детские спальни, мастер-спальня с ванной, кабинет, йога-зал, хаммам, патио с барбекю и ландшафт.</span><span lang="en">A two-storey house: a bright living room with kitchen, children’s bedrooms, a master suite, study, yoga room, hammam, a barbecue patio and landscaping.</span></p>
-        <ul class="case__scope cond">
-          <li><span lang="ru">Планировка</span><span lang="en">Space planning</span></li><li><span lang="ru">3D интерьеров</span><span lang="en">Interior 3D</span></li><li><span lang="ru">Экстерьер и ландшафт</span><span lang="en">Exterior and landscape</span></li><li><span lang="ru">Тёплый пол</span><span lang="en">Underfloor heating</span></li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="case rv">
-      <button type="button" class="case__cover" data-project="spb" aria-label="Проект Санкт-Петербург · Saint Petersburg Project">
-        <img src="assets/img/sp_kitchen_2-s.webp" srcset="assets/img/sp_kitchen_2-s.webp 760w, assets/img/sp_kitchen_2.webp 1078w" sizes="(max-width: 900px) 92vw, 62vw" alt="" loading="lazy" decoding="async">
-        <span class="case__open cond"><span lang="ru">Смотреть проект</span><span lang="en">View project</span> →</span>
-      </button>
-      <div class="case__info">
-        <p class="case__n">03</p>
-        <h3 class="case__title"><span lang="ru">Проект <em>Санкт-Петербург</em></span><span lang="en">Saint Petersburg <em>Project</em></span></h3>
-        <p><span lang="ru">Квартира с двумя спальнями: кухня-столовая в оливковых тонах, спальня, детская со шведской стенкой, прихожая и ванная с прачечной.</span><span lang="en">A two-bedroom apartment: an olive-toned kitchen-diner, a bedroom, a child’s room with wall bars, a hallway and a bathroom with laundry.</span></p>
-        <ul class="case__scope cond">
-          <li><span lang="ru">Полный комплект чертежей</span><span lang="en">Full drawing set</span></li><li>3D</li><li><span lang="ru">Инженерные планы</span><span lang="en">Engineering plans</span></li>
-        </ul>
-      </div>
-    </article>
-
-    <p class="projects__note rv"><span lang="ru">Для некоторых объектов я также могу показать дополнительные материалы и рабочую документацию в индивидуальном порядке.</span><span lang="en">For some projects I can share additional materials and working documentation on request.</span></p>
+    <div class="proj-foot">
+      <p><span lang="ru">Квартиры, семейные апартаменты, дома и виллы. Чертежи и другие материалы по объектам покажу по запросу.</span><span lang="en">Apartments, family residences, houses and villas. Drawings and further materials are available on request.</span></p>
+      <a class="soft" data-wa href="https://wa.me/79112136655" target="_blank" rel="noopener"><span lang="ru">Похожая задача? Напишите мне</span><span lang="en">A similar brief? Message me</span><i>→</i></a>
+    </div>
   </div>
 </section>
 
 <!-- ============ 10 STAGES ============ -->
-<section class="sec stages" id="stages" data-num="10" data-label-ru="Этапы" data-label-en="Stages">
-  <div class="wrap">
-    <header class="shead rv"><span class="shead__num">10</span><span class="shead__rule"></span><span class="shead__label cond"><span lang="ru">Этапы сотрудничества</span><span lang="en">How we work together</span></span></header>
-    <h2 class="display rv">
-      <span lang="ru">Шесть шагов<br>от <em>знакомства</em> до <em>новоселья</em></span>
-      <span lang="en">Six steps<br>from <em>hello</em> to <em>home</em></span>
-    </h2>
-    <ol class="steps" data-steps>
-      <li class="step rv"><span class="step__n">01</span><h3><span lang="ru">Знакомство и обсуждение</span><span lang="en">Getting to know you</span></h3><p><span lang="ru">Обсуждаем объект, ваши пожелания, образ жизни, задачи и бюджет.</span><span lang="en">We discuss the property, your wishes, lifestyle, goals and budget.</span></p></li>
-      <li class="step rv"><span class="step__n">02</span><h3><span lang="ru">Обмеры и планирование</span><span lang="en">Measurements and planning</span></h3><p><span lang="ru">Изучаем пространство, выполняем обмеры и разрабатываем планировочные решения.</span><span lang="en">We study the space, take measurements and develop the layout.</span></p></li>
-      <li class="step rv"><span class="step__n">03</span><h3><span lang="ru">Дизайн-концепция и 3D</span><span lang="en">Design concept and 3D</span></h3><p><span lang="ru">Формируем визуальный образ будущего интерьера и согласовываем основные решения.</span><span lang="en">We shape the look of the future interior and agree on key decisions.</span></p></li>
-      <li class="step rv"><span class="step__n">04</span><h3><span lang="ru">Рабочая документация</span><span lang="en">Working documentation</span></h3><p><span lang="ru">Подготавливаем чертежи, необходимые для строительных и монтажных работ.</span><span lang="en">We prepare the drawings needed for construction and installation.</span></p></li>
-      <li class="step rv"><span class="step__n">05</span><h3><span lang="ru">Комплектация</span><span lang="en">Procurement</span></h3><p><span lang="ru">Подбираем материалы, мебель, оборудование и формируем спецификации.</span><span lang="en">We select materials, furniture and equipment and compile specifications.</span></p></li>
-      <li class="step rv"><span class="step__n">06</span><h3><span lang="ru">Реализация</span><span lang="en">Implementation</span></h3><p><span lang="ru">Сопровождаем воплощение проекта, взаимодействуем с исполнителями и помогаем сохранить первоначальную концепцию.</span><span lang="en">We supervise the build, work with contractors and help keep the original concept intact.</span></p></li>
-    </ol>
+<section class="steps tall" id="stages" data-theme="paper2" data-num="10" data-ru="Этапы" data-en="Stages" data-pic="du_dining">
+  <div class="pin">
+    <div class="steps-head">
+      <p class="kick mono">10 — <span lang="ru">Этапы сотрудничества</span><span lang="en">How we work</span></p>
+      <h2 class="h h-sm"><span lang="ru">От знакомства до ключей</span><span lang="en">From first call to keys</span></h2>
+    </div>
+    <div class="track" id="track">
+      <div class="track-line"><i id="trackLine"></i></div>
+      <article class="step"><b>1</b><h3><span lang="ru">Знакомство</span><span lang="en">Meeting</span></h3><p><span lang="ru">Объект, пожелания, образ жизни, бюджет.</span><span lang="en">The property, your wishes, lifestyle and budget.</span></p></article>
+      <article class="step"><b>2</b><h3><span lang="ru">Обмеры и планировка</span><span lang="en">Survey and layout</span></h3><p><span lang="ru">Изучаем пространство и находим лучшую планировку.</span><span lang="en">We study the space and find the best layout.</span></p></article>
+      <article class="step"><b>3</b><h3><span lang="ru">Концепция и 3D</span><span lang="en">Concept and 3D</span></h3><p><span lang="ru">Образ интерьера и согласование главных решений.</span><span lang="en">The look of the interior and the key decisions.</span></p></article>
+      <article class="step"><b>4</b><h3><span lang="ru">Чертежи</span><span lang="en">Drawings</span></h3><p><span lang="ru">Документация для строительных и монтажных работ.</span><span lang="en">Documentation for construction and installation.</span></p></article>
+      <article class="step"><b>5</b><h3><span lang="ru">Комплектация</span><span lang="en">Procurement</span></h3><p><span lang="ru">Материалы, мебель, оборудование, спецификации.</span><span lang="en">Materials, furniture, equipment, specifications.</span></p></article>
+      <article class="step"><b>6</b><h3><span lang="ru">Реализация</span><span lang="en">Implementation</span></h3><p><span lang="ru">Сопровождаю стройку и берегу концепцию.</span><span lang="en">I supervise the build and protect the concept.</span></p></article>
+    </div>
   </div>
 </section>
 
 <!-- ============ 11 TIMING ============ -->
-<section class="sec timing" id="timing" data-num="11" data-label-ru="Сроки" data-label-en="Timing">
-  <div class="wrap">
-    <header class="shead rv"><span class="shead__num">11</span><span class="shead__rule"></span><span class="shead__label cond"><span lang="ru">Сроки и организация работы</span><span lang="en">Timing and organisation</span></span></header>
-    <div class="timing__grid">
-      <div class="timing__big rv">
-        <p class="timing__n">1–1,5</p>
-        <p class="timing__u"><span lang="ru">месяца</span><span lang="en">months</span></p>
-        <p class="cond timing__k"><span lang="ru">в среднем — разработка дизайн-проекта</span><span lang="en">on average for a design project</span></p>
-      </div>
-      <div class="timing__text rv">
-        <p class="lead" lang="ru">Точная продолжительность зависит от площади, сложности объекта, количества помещений и скорости согласования решений.</p>
-        <p class="lead" lang="en">The exact timing depends on the area, complexity, number of rooms and how quickly decisions are approved.</p>
-        <p lang="ru">Сроки реализации определяются отдельно, поскольку зависят от строительных работ, поставок материалов, работы подрядчиков и решений заказчика. Каждый этап имеет свою последовательность и согласованные сроки.</p>
-        <p lang="en">Implementation timing is set separately, as it depends on construction, material deliveries, contractors and the client’s decisions. Each stage has its own sequence and agreed deadlines.</p>
-        <p lang="ru">Работа строится так, чтобы заказчик понимал, на каком этапе находится проект, какие решения необходимо принять и что будет происходить дальше.</p>
-        <p lang="en">The work is organised so you always know what stage the project is at, which decisions are needed and what happens next.</p>
-      </div>
+<section class="sec time" id="timing" data-theme="paper" data-num="11" data-ru="Сроки" data-en="Timing" data-pic="cy_office">
+  <p class="kick mono" data-rise>11 — <span lang="ru">Сроки и организация</span><span lang="en">Timing and organisation</span></p>
+  <div class="time-grid">
+    <div class="time-big" id="timeBig">
+      <svg viewBox="0 0 200 200" class="dial" aria-hidden="true"><circle cx="100" cy="100" r="96"/><circle cx="100" cy="100" r="96" class="dial-p" id="dialP" pathLength="1"/></svg>
+      <p class="time-n"><b>1–1,5</b><span lang="ru">месяца</span><span lang="en">months</span></p>
+      <p class="mono time-s"><span lang="ru">дизайн-проект в среднем</span><span lang="en">design project on average</span></p>
     </div>
-
-    <!-- Dimension chain: the design project vs implementation -->
-    <div class="chain rv" aria-hidden="true">
-      <div class="chain__row">
-        <span class="chain__seg"><span lang="ru">Обмеры</span><span lang="en">Survey</span></span>
-        <span class="chain__seg"><span lang="ru">Концепция и 3D</span><span lang="en">Concept and 3D</span></span>
-        <span class="chain__seg"><span lang="ru">Чертежи</span><span lang="en">Drawings</span></span>
-        <span class="chain__seg"><span lang="ru">Комплектация</span><span lang="en">Procurement</span></span>
-        <span class="chain__seg chain__seg--open"><span lang="ru">Реализация</span><span lang="en">Implementation</span></span>
-      </div>
-      <div class="chain__dims">
-        <span class="chain__dim"><i></i><b><span lang="ru">1–1,5 мес.</span><span lang="en">1–1.5 months</span></b><i></i></span>
-        <span class="chain__dim chain__dim--open"><i></i><b><span lang="ru">определяется отдельно</span><span lang="en">set separately</span></b><i></i></span>
-      </div>
-    </div>
+    <ul class="time-pts">
+      <li data-rise><h3><span lang="ru">Точный срок</span><span lang="en">Exact timing</span></h3><p><span lang="ru">Зависит от площади, сложности и скорости согласований.</span><span lang="en">Depends on area, complexity and how fast decisions are approved.</span></p></li>
+      <li data-rise><h3><span lang="ru">Реализация</span><span lang="en">Implementation</span></h3><p><span lang="ru">Считается отдельно: стройка, поставки, подрядчики.</span><span lang="en">Set separately: construction, deliveries, contractors.</span></p></li>
+      <li data-rise><h3><span lang="ru">Прозрачность</span><span lang="en">Transparency</span></h3><p><span lang="ru">Вы знаете, на каком этапе проект и что будет дальше.</span><span lang="en">You know where the project stands and what comes next.</span></p></li>
+    </ul>
   </div>
 </section>
 
-<!-- ============ CODA: what it's like to work with me ============ -->
-<section class="coda" id="with-me" data-dark data-num="—" data-label-ru="Каково это работать со мной" data-label-en="Working with me">
-  <img class="coda__bg" src="assets/img/du_master_bed.webp" alt="" loading="lazy" decoding="async">
-  <div class="wrap coda__in">
-    <p class="cond coda__k rv"><span lang="ru">Каково это — работать со мной</span><span lang="en">What it’s like to work with me</span></p>
-    <blockquote class="coda__q rv">
-      <p lang="ru">Мне важно, чтобы сотрудничество было не только профессиональным, но и&nbsp;<em>комфортным</em>. Я открыта к диалогу, внимательно отношусь к пожеланиям заказчика и всегда объясняю, почему предлагаю то или иное решение.</p>
-      <p lang="en">I want our collaboration to be not only professional but <em>comfortable</em>. I’m open to dialogue, attentive to your wishes, and I always explain why I suggest one solution or another.</p>
-    </blockquote>
-    <p class="coda__end rv">
-      <span lang="ru">Для меня хороший результат — это не только красивый интерьер, но и довольный человек, который чувствует себя в своём пространстве <em>дома</em>.</span>
-      <span lang="en">For me, a good result is not only a beautiful interior, but a happy person who feels <em>at home</em> in their space.</span>
-    </p>
-    <p class="coda__sign rv"><span lang="ru">— Яна</span><span lang="en">— Yana</span></p>
-  </div>
+<!-- ============ CODA ============ -->
+<section class="sec coda" id="with-me" data-theme="blush" data-num="✦" data-ru="Со мной" data-en="Working with me" data-pic="du_master_bed">
+  <p class="kick mono" data-rise><span lang="ru">Каково это — работать со мной</span><span lang="en">What it’s like to work with me</span></p>
+  <blockquote class="coda-q" id="codaQ"><span lang="ru">Мне важно, чтобы сотрудничество было не только профессиональным, но и комфортным. Я открыта к диалогу, внимательно отношусь к пожеланиям заказчика и всегда объясняю, почему предлагаю то или иное решение. Для меня хороший результат — это не только красивый интерьер, но и довольный человек, который чувствует себя в своём пространстве дома.</span><span lang="en">It matters to me that working together is not only professional but comfortable. I am open to dialogue, I listen closely to what the client wants, and I always explain why I propose a particular solution. For me a good result is not only a beautiful interior, but a happy person who feels at home in their own space.</span></blockquote>
+  <p class="coda-s" data-rise>— Yana Ch.</p>
 </section>
 
 <!-- ============ 12 CONTACTS ============ -->
-<section class="sec contacts" id="contacts" data-num="12" data-label-ru="Контакты" data-label-en="Contacts">
-  <div class="wrap">
-    <header class="shead rv"><span class="shead__num">12</span><span class="shead__rule"></span><span class="shead__label cond"><span lang="ru">Контакты</span><span lang="en">Contacts</span></span></header>
-    <div class="contacts__grid">
-      <div>
-        <p class="contacts__brand rv">YANA CH.</p>
-        <p class="cond contacts__role rv">Private Interior Architect</p>
-        <p class="contacts__tag rv">
-          <span lang="ru">От идеи<br>до <em>полной реализации</em>.</span>
-          <span lang="en">From idea<br>to <em>full implementation</em>.</span>
-        </p>
-      </div>
-      <div class="contacts__card rv">
-        <p class="cond contacts__k"><span lang="ru">Где</span><span lang="en">Where</span></p>
-        <p class="contacts__v"><span lang="ru">Душанбе, Таджикистан</span><span lang="en">Dushanbe, Tajikistan</span><br><span class="contacts__sub"><span lang="ru">Международные проекты · RU / EN</span><span lang="en">International projects · RU / EN</span></span></p>
-        <p class="cond contacts__k"><span lang="ru">Написать</span><span lang="en">Get in touch</span></p>
-        <div class="contacts__btns">
-          <a class="btn btn--solid" href="https://wa.me/79112136655" target="_blank" rel="noopener"><span class="btn__k cond">WhatsApp</span><span class="btn__v">+7 911 213-66-55</span></a>
-          <a class="btn" href="https://www.instagram.com/yana.ch_/" target="_blank" rel="noopener"><span class="btn__k cond">Instagram</span><span class="btn__v">@yana.ch_</span></a>
-        </div>
-        <p class="contacts__claim">
-          <span lang="ru">Создаём пространства, в которых эстетика встречается с функциональностью.</span>
-          <span lang="en">Creating spaces where aesthetics meet function.</span>
-        </p>
-      </div>
-    </div>
+<section class="sec cont" id="contacts" data-theme="paper2" data-num="12" data-ru="Контакты" data-en="Contacts" data-pic="cy_pergola_day">
+  <p class="kick mono" data-rise>12 — <span lang="ru">Контакты</span><span lang="en">Contacts</span></p>
+  <h2 class="cont-name" id="contName" aria-label="YANA CH.">YANA CH.</h2>
+  <p class="cont-say" data-rise><span lang="ru">От идеи до полной реализации. Напишите пару слов об объекте — с этого всё начинается.</span><span lang="en">From idea to full completion. Send a few words about your space. That is where it all begins.</span></p>
+  <div class="cont-row">
+    <a class="big-link" data-wa href="https://wa.me/79112136655" target="_blank" rel="noopener" data-rise data-cursor="→"><span class="mono">WhatsApp</span><b>+7 911 213 66 55</b></a>
+    <a class="big-link" href="https://instagram.com/yana.ch_" target="_blank" rel="noopener" data-rise data-cursor="→"><span class="mono">Instagram</span><b>@yana.ch_</b></a>
   </div>
-  <footer class="foot cond">
-    <span>© 2026 YANA CH.</span>
-    <span lang="ru">Дизайн интерьера · Комплектация · Реализация под ключ</span><span lang="en">Interior Design · Procurement · Turnkey Implementation</span>
-    <a href="#top"><span lang="ru">Наверх ↑</span><span lang="en">Back to top ↑</span></a>
+  <footer class="foot mono">
+    <span>Private Interior Architect</span>
+    <span><span lang="ru">Душанбе, Таджикистан · Международные проекты</span><span lang="en">Dushanbe, Tajikistan · International Projects</span></span>
+    <a href="#top" data-go><span lang="ru">Наверх ↑</span><span lang="en">Back to top ↑</span></a>
   </footer>
 </section>
 
 </main>
 
-<!-- ============ LIGHTBOX ============ -->
-<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Gallery">
-  <div class="lb__top cond">
-    <p class="lb__title"></p>
-    <p class="lb__count"></p>
-    <button type="button" class="lb__close" aria-label="Close"><span lang="ru">Закрыть</span><span lang="en">Close</span> ✕</button>
-  </div>
-  <div class="lb__view"></div>
-  <p class="lb__cap"></p>
-  <button type="button" class="lb__nav lb__prev" aria-label="Previous">←</button>
-  <button type="button" class="lb__nav lb__next" aria-label="Next">→</button>
-  <p class="lb__zoomhint cond"><span lang="ru">Нажмите на чертёж для увеличения</span><span lang="en">Tap the drawing to zoom</span></p>
+<!-- ============ lightbox ============ -->
+<div class="lb" id="lb" aria-hidden="true" role="dialog" aria-modal="true">
+  <button class="lb-x" id="lbX" aria-label="Close">×</button>
+  <button class="lb-a lb-p" id="lbP" aria-label="Previous">←</button>
+  <figure class="lb-f"><img id="lbImg" src="assets/img/du_living_arch-s.webp" alt=""><figcaption class="mono"><b id="lbT"></b><span id="lbC"></span><i id="lbN"></i><a class="lb-ask" data-wa href="https://wa.me/79112136655" target="_blank" rel="noopener"><span lang="ru">Обсудить похожий проект →</span><span lang="en">Discuss a similar project →</span></a></figcaption></figure>
+  <button class="lb-a lb-n" id="lbNx" aria-label="Next">→</button>
 </div>
 
-<script src="assets/js/projects.js" defer></script>
-<script src="assets/js/main.js" defer></script>
+<script src="assets/js/vendor/gsap.min.js"></script>
+<script src="assets/js/vendor/ScrollTrigger.min.js"></script>
+<script src="assets/js/vendor/lenis.min.js"></script>
+<script src="assets/js/projects.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
